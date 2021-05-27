@@ -1,0 +1,21 @@
+.bg-image-login{
+  background-image: url("https://images.unsplash.com/photo-1546717003-caee5f93a9db?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=victor-garcia-raesgfwU7iM-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+form{
+  margin-top: 8rem;
+}
+.auth-form-group{
+  margin-top: 3rem;
+}
+.auth-password, .auth-username{
+  padding-right: .2rem;
+}
+.btn{
+  margin-top: 4rem;
+}

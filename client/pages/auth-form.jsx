@@ -41,28 +41,32 @@ export default class AuthForm extends React.Component {
 
   render(){
     return (
-      <div className="bg-image-login">
+
+      <div className=" bg-image-login">
         <div className="container-fluid">
           <div className="row form-row justify-content-center align-items-center">
             <div className="col justify-content-center align-items-center text-center">
             <form className="auth-form">
-              <h4 className="auth-header text-center">Create an Account</h4>
-              <div className="auth-form-group mb-4">
-                <label className="auth-username" htmlFor="username">
-                  Username
-                </label>
-                <input required id="username" type="text" name="username" onChange={this.handleChange}/>
+              <div className="card text-center card-color">
+                <h4 className="auth-header text-center">Create an Account</h4>
+                <a href="#login">Already have an account?</a>
+                <div className="auth-form-group mb-4">
+                  <label className="auth-username" htmlFor="username">
+                    Username
+                  </label>
+                  <input required id="username" type="text" name="username" onChange={this.handleChange}/>
+                  </div>
+                <div className="auth-form-group">
+                  <label className="auth-password">
+                    Password
+                  </label>
+                  <input required id="password" type="password" name="password" onChange={this.handleChange}/>
                 </div>
-              <div className="auth-form-group">
-                <label className="auth-password">
-                  Password
-                </label>
-                <input required id="password" type="password" name="password" onChange={this.handleChange}/>
+                <button type="submit" className="btn auth-button">
+                  Sign Up!
+                </button>
               </div>
-              <button type="submit" className="btn auth-button">
-                Sign Up!
-              </button>
-            </form>
+              </form>
             </div>
           </div>
         </div>

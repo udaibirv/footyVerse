@@ -30,7 +30,7 @@ app.post('/api/auth/sign-up', (req, res) => {
     .then(hashedPassword => {
       const sql = `
         insert into "users" ("username", "hashedPassword")
-        values ($1, $2, $3)
+        values ($1, $2)
         returning "userId", "username"
       `;
       const params = [username, hashedPassword];
@@ -45,6 +45,49 @@ app.post('/api/auth/sign-up', (req, res) => {
       res.status(400).json({
         error: 'an unexpected error occured'
       });
+    });
+});
+
+app.post('/api/auth/sign-in', (req, res) => {
+  const {username, password} = req.body;
+  if(!username || !password){
+    return res.status(400).json({
+      error: 'invalid login, please enter correct username or password'
+    });
+  }
+
+  const sql = `
+    select "userId", "hashedPassword"
+      from "users"
+      where "username = $1
+  `;
+  const params = [username];
+  db.query(sql, params)
+    .then(result => {
+      const [user] = result.rows;
+      if(!user){
+        return res.status(401).json({
+          error: 'invalid login'
+        });
+      }
+
+      const {userId, hashedPassword} = user;
+      return argon2
+        .verify(hashedPassword, password)
+        .then(isMatching => {
+          if(!isMatching){
+            return res.status(401).json({
+              error: 'invalid login'
+            });
+          }
+
+          const payload = {userId, username};
+          const token = jwt.sign(payload, process.env.TOKEN_SECRET);
+          return res.json({token, user: payload});
+        })
+        .catch(error => {
+          console.error(error);
+        });
     });
 });
 

@@ -2,6 +2,7 @@ import React from 'react';
 import AuthForm from './pages/auth-form';
 import Home from './pages/home';
 import parseRoute from '../parse-route';
+import Login from './pages/login';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,6 +23,9 @@ export default class App extends React.Component {
     const {route} = this.state;
     if(route.path === ''){
       return <AuthForm />;
+    }
+    if(route.path === 'login'){
+      return <Login/>;
     }
   }
 

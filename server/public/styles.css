@@ -19,3 +19,9 @@ form{
 .btn{
   margin-top: 4rem;
 }
+
+.card{
+  margin: 0 auto;
+  width: 20rem;
+  /* use important for background color  */
+}

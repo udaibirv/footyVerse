@@ -91,6 +91,20 @@ app.post('/api/auth/sign-in', (req, res) => {
     });
 });
 
+
+// app.get('/https://v3.football.api-sports.io/leagues/', (req, res) => {
+//   req.headers['x-apisports-key'] = "55079badf90d509b71c69c823d5f377e";
+//   req.params =
+
+
+
+
+// })
+
+
+
+
+
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`express server listening on port ${process.env.PORT}`);

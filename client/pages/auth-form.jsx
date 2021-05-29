@@ -14,6 +14,15 @@ export default class AuthForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // componentDidMount(){
+
+  //   fetch("https://v3.football.api-sports.io/leagues/id=39")
+  //     .then(response => response.json())
+  //     .then(result => console.log(result))
+  //     .catch(error => console.log('error', error));
+
+  // }
+
   handleChange(event){
     const {name, value} = event.target;
     this.setState({

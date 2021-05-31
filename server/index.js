@@ -5,6 +5,7 @@ const staticMiddleware = require('./static-middleware');
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
 const pg = require('pg');
+const  request = require('request');
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -92,15 +93,26 @@ app.post('/api/auth/sign-in', (req, res) => {
 });
 
 
-// app.get('/https://v3.football.api-sports.io/leagues/', (req, res) => {
-//   req.headers['x-apisports-key'] = "55079badf90d509b71c69c823d5f377e";
-//   req.params =
+app.get('/api/leauge-info', (req, res) => {
+  request(
+    { url: "https://v3.football.api-sports.io/leagues?id=39",
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+  },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
 
+      res.json(JSON.parse(body));
+    }
+  )
 
+})
 
-
-// })
-
+// api key 55079badf90d509b71c69c823d5f377e
 
 
 

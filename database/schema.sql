@@ -5,3 +5,12 @@ set client_min_messages to warning;
 drop schema "public" cascade;
 
 create schema "public";
+
+CREATE TABLE "users" (
+  "userId" serial NOT NULL,
+  "username" TEXT NOT NULL,
+  "hashedPassword" TEXT NOT NULL,
+  CONSTRAINT "users_pk" PRIMARY KEY ("userId")
+) WITH (
+ OIDS=FALSE
+);

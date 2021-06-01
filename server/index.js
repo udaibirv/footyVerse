@@ -92,7 +92,7 @@ app.post('/api/auth/sign-in', (req, res) => {
     });
 });
 
-app.get('/api/leauge-info', (req, res) => {
+app.get('/api/leauge-info/england', (req, res) => {
   request(
     {
       url: "https://v3.football.api-sports.io/leagues?id=39",
@@ -112,10 +112,33 @@ app.get('/api/leauge-info', (req, res) => {
 
 })
 
+app.get('/api/leauge-info/germany', (req, res) => {
+  request(
+    {
+      url: "https://v3.football.api-sports.io/leagues?id=78",
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  )
+})
 
 
 
 
+
+//france id = 61
+  //germany id = 78
+  //spain id = 140
+  //italy id = 135
 
 
 app.listen(process.env.PORT, () => {

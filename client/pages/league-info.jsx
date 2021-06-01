@@ -1,3 +1,4 @@
+import { response } from "express";
 import React from "react";
 
 export default class LeagueInfo extends React.Component {
@@ -12,6 +13,7 @@ export default class LeagueInfo extends React.Component {
     }
 
     this.getEnglandInfo = this.getEnglandInfo.bind(this);
+    this.getGermanyInfo = this.getGermanyInfo.bind(this);
   }
 
   componentDidMount(){
@@ -20,12 +22,12 @@ export default class LeagueInfo extends React.Component {
 
 
   getEnglandInfo(){
-    var requestOptions = {
+    const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info', requestOptions)
+    fetch('/api/leauge-info/england', requestOptions)
       .then(response => response.json())
       .then(result => {
         const flag = result.response[0].league.logo;
@@ -33,16 +35,38 @@ export default class LeagueInfo extends React.Component {
       })
       .catch(error => console.log('error', error));
 
-
-
   }
 
+  getGermanyInfo(){
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/league-info/germany', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        const germanFlag = result.response[0].league.logo;
+        this.setState({germany: germanFlag});
+      })
+      .catch(error => console.log('error', error));
+  }
+
+
+
   render(){
-    const {england} = this.state;
+    const {state} = this.state;
     return (
-      <a>
-        <img src={england}></img>
-      </a>
+      <div className="container">
+        <a>
+          <img src={state.england}></img>
+        </a>
+
+        <a>
+          <img src={state.germany}></img>
+        </a>
+      </div>
+
     )
   }
 

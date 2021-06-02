@@ -25,3 +25,15 @@ form{
   width: 20rem;
   /* use important for background color  */
 }
+
+.league-card{
+  width: 18rem;
+}
+
+.card-img-top{
+  height: 10rem;
+}
+
+.league-container{
+  margin-top: 3rem;
+}

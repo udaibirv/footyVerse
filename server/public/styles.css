@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .bg-image-login{
   background-image: url("https://images.unsplash.com/photo-1546717003-caee5f93a9db?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=victor-garcia-raesgfwU7iM-unsplash.jpg");
   background-position: center;
@@ -28,6 +32,8 @@ form{
 
 .league-card{
   width: 18rem;
+  background-color: #F7F9F9 !important;
+  margin-top: 2rem;
 }
 
 .card-img-top{
@@ -35,5 +41,16 @@ form{
 }
 
 .league-container{
-  margin-top: 3rem;
+  margin: 0;
+  background-color: #227C9D;
+}
+a{
+  margin: 0 auto;
+}
+
+p{
+  font-size: small;
+}
+body{
+  height: 100%;
 }

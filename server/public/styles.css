@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  background-color: black;
 }
 
 .bg-image-login{
@@ -32,8 +33,9 @@ form{
 
 .league-card{
   width: 18rem;
-  background-color: #F7F9F9 !important;
+  background-color: #F3D34A!important;
   margin-top: 2rem;
+  color: white;
 }
 
 .card-img-top{
@@ -50,4 +52,14 @@ p{
 }
 body{
   height: 100%;
+}
+
+
+.header{
+  font-family: 'Architects Daughter', cursive;
+  color: #F3D34A
+}
+
+.card-title{
+  color: #F3D34A;
 }

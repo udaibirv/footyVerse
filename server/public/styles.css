@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  background-color: black;
+}
+
 .bg-image-login{
   background-image: url("https://images.unsplash.com/photo-1546717003-caee5f93a9db?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=victor-garcia-raesgfwU7iM-unsplash.jpg");
   background-position: center;
@@ -24,4 +29,37 @@ form{
   margin: 0 auto;
   width: 20rem;
   /* use important for background color  */
+}
+
+.league-card{
+  width: 18rem;
+  background-color: #F3D34A!important;
+  margin-top: 2rem;
+  color: white;
+}
+
+.card-img-top{
+  height: 10rem;
+}
+
+
+a{
+  margin: 0 auto;
+}
+
+p{
+  font-size: small;
+}
+body{
+  height: 100%;
+}
+
+
+.header{
+  font-family: 'Architects Daughter', cursive;
+  color: #F3D34A
+}
+
+.card-title{
+  color: #F3D34A;
 }

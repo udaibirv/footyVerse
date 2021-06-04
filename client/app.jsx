@@ -3,6 +3,7 @@ import AuthForm from './pages/auth-form';
 import Home from './pages/home';
 import parseRoute from '../parse-route';
 import Login from './pages/login';
+import LeagueInfo from './pages/league-info';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class App extends React.Component {
   renderPage(){
     const {route} = this.state;
     if(route.path === ''){
-      return <AuthForm />;
+      return <LeagueInfo />;
     }
     if(route.path === 'login'){
       return <Login/>;

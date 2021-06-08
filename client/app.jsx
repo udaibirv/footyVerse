@@ -4,6 +4,7 @@ import Home from './pages/home';
 import parseRoute from '../parse-route';
 import Login from './pages/login';
 import LeagueInfo from './pages/league-info';
+import England from './pages/england';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class App extends React.Component {
   renderPage(){
     const {route} = this.state;
     if(route.path === ''){
-      return <LeagueInfo />;
+      return <England />;
     }
     if(route.path === 'login'){
       return <Login/>;

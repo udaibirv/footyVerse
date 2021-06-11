@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  background-color: black;
+
 }
 
 .bg-image-login{
@@ -62,4 +62,11 @@ body{
 
 .card-title{
   color: #F3D34A;
+}
+table{
+  color: white;
+}
+
+td{
+  color: white;
 }

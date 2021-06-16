@@ -1,22 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class England extends React.Component{
-  constructor(props){
+export default class England extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       england: []
-    }
+    };
     this.getEnglandInfo = this.getEnglandInfo.bind(this);
 
   }
 
-
-  componentDidMount(){
-  this.getEnglandInfo();
+  componentDidMount() {
+    this.getEnglandInfo();
 
   }
-
-
 
   getEnglandInfo() {
     const requestOptions = {
@@ -29,7 +26,7 @@ export default class England extends React.Component{
       .then(result => {
 
         const table = result.response[0].league.standings;
-        this.setState({england: table});
+        this.setState({ england: table });
 
         console.log(table);
       })
@@ -37,24 +34,16 @@ export default class England extends React.Component{
 
   }
 
-render(){
-  const { england } = this.state;
-  console.log('state :', england);
-  return (
-    <div className="col-12 col-md-6 col-lg-4">
-      {england.map((club, index) => {
+  render() {
+    const { england } = this.state;
+    return (
+      england.map((club, index) => {
         return (
-          <div key={club[index]}>
+          <div key={index}>
             <h1>{club[index].team.name}</h1>
           </div>
-
-        )
-      })}
-    </div>
-
-
-  );
-
-
-}
+        );
+      })
+    );
+  }
 }

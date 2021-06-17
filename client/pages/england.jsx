@@ -41,6 +41,11 @@ export default class England extends React.Component {
         return (
           <div key={index}>
             <h1>{club[index].team.name}</h1>
+            {club.map((info, j) => {
+              return (
+              <h2 key={j}>{info.team.name}</h2>
+              );
+            })}
           </div>
         );
       })

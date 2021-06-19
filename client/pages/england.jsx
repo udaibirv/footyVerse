@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactTable from 'react-table';
 
 export default class England extends React.Component {
@@ -38,19 +38,22 @@ export default class England extends React.Component {
   render() {
     const { england } = this.state;
     return (
-
-      england.map((club, index) => {
-        return (
-          <div key={index}>
-            <h1>{club[index].team.name}</h1>
-            {club.map((info, j) => {
-              return (
-              <h2 key={j}>{info.team.name}</h2>
-              );
-            })}
-          </div>
-        );
-      })
+      <h1>Hello</h1>
+      // england.map((club, index) => {
+      //   return (
+      //     <div key={index}>
+      //       <h1>{club[index].team.name}</h1>
+      //       {club.map((info, j) => {
+      //         return (
+      //       <div key={j}>
+      //         <h2 key={j}>{info.team.name}</h2>
+      //           <p>{info.rank}</p>
+      //       </div>
+      //         );
+      //       })}
+      //     </div>
+      //   );
+      // })
     );
   }
 }

@@ -27,33 +27,48 @@ export default class England extends React.Component {
       .then(result => {
 
         const table = result.response[0].league.standings;
-        this.setState({ england: table });
+        table.map((club, index) => {
+          return (
+            this.setState({ england: club[index] })
+          );
+        });
 
-        console.log(table);
+        console.log(this.state);
       })
       .catch(error => console.log('error', error));
 
   }
 
   render() {
-    const { england } = this.state;
     return (
-      <h1>Hello</h1>
-      // england.map((club, index) => {
-      //   return (
-      //     <div key={index}>
-      //       <h1>{club[index].team.name}</h1>
-      //       {club.map((info, j) => {
-      //         return (
-      //       <div key={j}>
-      //         <h2 key={j}>{info.team.name}</h2>
-      //           <p>{info.rank}</p>
-      //       </div>
-      //         );
-      //       })}
-      //     </div>
-      //   );
-      // })
+      <h1>hello</h1>
     );
+    // const { england } = this.state;
+
+    // const data = england.map((info, j) => {
+    //   return (
+    //     <div key={j}>
+    //       <h1>info.team.name</h1>
+    //     </div>
+    //   );
+    // });
+    // return (
+    //   <h1>Hello</h1>
+    //   // england.map((club, index) => {
+    //   //   return (
+    //   //     <div key={index}>
+    //   //       <h1>{club[index].team.name}</h1>
+    //   //       {club.map((info, j) => {
+    //   //         return (
+    //   //       <div key={j}>
+    //   //         <h2 key={j}>{info.team.name}</h2>
+    //   //           <p>{info.rank}</p>
+    //   //       </div>
+    //   //         );
+    //   //       })}
+    //   //     </div>
+    //   //   );
+    //   // })
+    // );
   }
 }

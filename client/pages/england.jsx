@@ -26,7 +26,11 @@ export default class England extends React.Component {
       .then(result => {
 
         const table = result.response[0].league.standings;
-        this.setState({ england: table });
+        table.map((club, index) => {
+          return (
+            this.setState({ england: club })
+          );
+        });
 
         console.log(this.state.england);
       })
@@ -37,71 +41,43 @@ export default class England extends React.Component {
   render() {
     const { england } = this.state;
     return (
-      <table>
+    <div className="table-responsive">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Position</th>
             <th scope="col">Name</th>
+            <th scope="col">Played</th>
+            <th scope="col">Win</th>
+            <th scope="col">Loss</th>
+            <th scope="col">Draw</th>
+            <th scope="col">GF</th>
+            <th scope="col">GA</th>
+            <th scope="col">Points</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {
+            england.map((info, j) => {
+              return (
+                <tr scope="row" key={j}>
+                  <td>{info.rank}</td>
+                  <td> {info.team.name}</td>
+                  <td>{info.all.played}</td>
+                  <td>{info.all.win}</td>
+                  <td>{info.all.lose}</td>
+                  <td>{info.all.draw}</td>
+                  <td>{info.all.goals.for}</td>
+                  <td>{info.all.goals.against}</td>
+                  <td>{info.points}</td>
+                </tr>
+              );
+            })
+          }
 
-              {england.map((info, j) => {
-                return (
-                  info.map((club, x) => {
-                    return (
-
-                    );
-                  })
-                );
-              })
-            }
-
-          </tr>
         </tbody>
       </table>
-
-    // england.map((club, index) => {
-    //   return (
-    //   <div key={index}>
-    //     {club.map((info, j) => {
-    //       return (
-    //     <div key={info[j]}>
-    //         <table className="table">
-    //           <thead>
-
-    //               <th scope="row">Position</th>
-    //               {/* <th scope="col">Team</th>
-    //               <th scope="col">Played</th>
-    //               <th scope="col">Win</th>
-    //               <th scope="col">Loss</th>
-    //               <th scope="col">Draw</th>
-    //               <th scope="col">GF</th>
-    //               <th scope="col">GA</th>
-    //               <th scope="col">Points</th> */}
-
-    //           </thead>
-    //           <tbody>
-
-    //               <td scope="row">{info.rank}</td>
-    //               {/* <td scope="row">{info.team.name}</td>
-    //               <td scope="row">{info.all.played}</td>
-    //               <td scope="row">{info.all.win}</td>
-    //               <td scope="row">{info.all.lose}</td>
-    //               <td scope="row">{info.all.draw}</td>
-    //               <td scope="row">{info.all.goals.for}</td>
-    //               <td scope="row">{info.all.goals.against}</td>
-    //               <td scope="row">{info.points}</td> */}
-
-    //           </tbody>
-    //         </table>
-    //     </div>
-    //       );
-    //     })}
-    //   </div>
-    //   );
-    // })
+    </div>
     );
   }
 }

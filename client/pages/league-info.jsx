@@ -1,13 +1,11 @@
-import React from "react";
+import React from 'react';
 
 export default class LeagueInfo extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-
-
-  render(){
+  render() {
     return (
         <div className="container-fluid league-container background-image">
         <h5 className="header text-center">Which league would you like to follow?</h5>
@@ -83,7 +81,7 @@ export default class LeagueInfo extends React.Component {
           </div>
         </div>
 
-      )
-    }
-
+    );
   }
+
+}

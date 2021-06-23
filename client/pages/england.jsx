@@ -51,11 +51,7 @@ export default class England extends React.Component {
                 return (
                   info.map((club, x) => {
                     return (
-                      <th key={x}>
-                        <td>
-                          {club.rank}
-                        </td>
-                      </th>
+
                     );
                   })
                 );

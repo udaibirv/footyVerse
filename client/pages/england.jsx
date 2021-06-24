@@ -40,36 +40,43 @@ export default class England extends React.Component {
 
   render() {
     const { england } = this.state;
+    let className = '';
     return (
     <div className="table-responsive">
-      <table className="table">
+        <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">Position</th>
             <th scope="col">Name</th>
-            <th scope="col">Played</th>
             <th scope="col">Win</th>
             <th scope="col">Loss</th>
             <th scope="col">Draw</th>
-            <th scope="col">GF</th>
-            <th scope="col">GA</th>
             <th scope="col">Points</th>
           </tr>
         </thead>
         <tbody>
           {
             england.map((info, j) => {
+              if (info.rank === 1) {
+                className = 'table-success';
+              } else if (info.rank >= 2 && info.rank < 5) {
+                className = 'table-primary';
+              } else if (info.rank >= 18) {
+                className = 'table-danger';
+              } else {
+                className = 'table-default';
+              }
               return (
                 <tr scope="row" key={j}>
-                  <td>{info.rank}</td>
-                  <td> {info.team.name}</td>
-                  <td>{info.all.played}</td>
-                  <td>{info.all.win}</td>
-                  <td>{info.all.lose}</td>
-                  <td>{info.all.draw}</td>
-                  <td>{info.all.goals.for}</td>
-                  <td>{info.all.goals.against}</td>
-                  <td>{info.points}</td>
+                  <td className={className}>
+                    {info.rank}
+
+                    </td>
+                  <td className={className}> {info.team.name}</td>
+                  <td className={className}>{info.all.win}</td>
+                  <td className={className}>{info.all.lose}</td>
+                  <td className={className}>{info.all.draw}</td>
+                  <td className={className}>{info.points}</td>
                 </tr>
               );
             })

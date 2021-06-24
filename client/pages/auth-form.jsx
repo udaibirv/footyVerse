@@ -35,6 +35,7 @@ export default class AuthForm extends React.Component {
       .then(data => {
         this.setState({user: data});
         console.log("data : ", data);
+        window.location.hash('#league');
       })
   }
 

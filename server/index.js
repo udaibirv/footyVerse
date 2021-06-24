@@ -95,7 +95,7 @@ app.post('/api/auth/sign-in', (req, res) => {
 app.get('/api/leauge-info/england', (req, res) => {
   request(
     {
-      url: "https://v3.football.api-sports.io/leagues?id=39",
+      url: "https://v3.football.api-sports.io/standings?league=39&season=2019",
       headers: {
         'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
         'Content-Type': 'application/json'

@@ -1,5 +1,4 @@
-import { info } from 'loglevel';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 export default class England extends React.Component {
   constructor(props) {
     super(props);
@@ -32,9 +31,8 @@ export default class England extends React.Component {
           );
         });
 
-        console.log(this.state.england);
       })
-      .catch(error => console.log('error', error));
+      .catch(error => console.error('error', error));
 
   }
 
@@ -42,48 +40,56 @@ export default class England extends React.Component {
     const { england } = this.state;
     let className = '';
     return (
-    <div className="table-responsive">
-        <table className="table table-sm">
-        <thead>
-          <tr>
-            <th scope="col">Position</th>
-            <th scope="col">Name</th>
-            <th scope="col">Win</th>
-            <th scope="col">Loss</th>
-            <th scope="col">Draw</th>
-            <th scope="col">Points</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            england.map((info, j) => {
-              if (info.rank === 1) {
-                className = 'table-success';
-              } else if (info.rank >= 2 && info.rank < 5) {
-                className = 'table-primary';
-              } else if (info.rank >= 18) {
-                className = 'table-danger';
-              } else {
-                className = 'table-default';
+    <div className="container-fluid">
+      <div className="image-container text-center">
+        <img className="league-image" src="https://www.egypttoday.com/siteimages/Larg/202012300620332033.jpg"></img>
+      </div>
+        <div className="table-responsive">
+            <table className="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Position</th>
+                <th scope="col">Club</th>
+                <th scope="col">Win</th>
+                <th scope="col">Loss</th>
+                <th scope="col">Draw</th>
+                <th scope="col">Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                england.map((info, j) => {
+                  if (info.rank === 1) {
+                    className = 'table-success';
+                  } else if (info.rank >= 2 && info.rank < 5) {
+                    className = 'table-primary';
+                  } else if (info.rank >= 18) {
+                    className = 'table-danger';
+                  } else {
+                    className = 'table-default';
+                  }
+                  return (
+                    <tr scope="row" key={j}>
+                      <td className={className}>
+                        {info.rank}
+
+                        </td>
+                      <td className={className}>
+                        <img className="team-logo" src={info.team.logo}/>
+                        {info.team.name}
+                      </td>
+                      <td className={className}>{info.all.win}</td>
+                      <td className={className}>{info.all.lose}</td>
+                      <td className={className}>{info.all.draw}</td>
+                      <td className={className}>{info.points}</td>
+                    </tr>
+                  );
+                })
               }
-              return (
-                <tr scope="row" key={j}>
-                  <td className={className}>
-                    {info.rank}
 
-                    </td>
-                  <td className={className}> {info.team.name}</td>
-                  <td className={className}>{info.all.win}</td>
-                  <td className={className}>{info.all.lose}</td>
-                  <td className={className}>{info.all.draw}</td>
-                  <td className={className}>{info.points}</td>
-                </tr>
-              );
-            })
-          }
-
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </div>
     </div>
     );
   }

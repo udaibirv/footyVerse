@@ -63,3 +63,18 @@ body{
 .card-title{
   color: #F3D34A;
 }
+
+.team-logo{
+  height: 3rem;
+  margin-right: 2rem;
+}
+
+.league-image{
+  height: 10rem;
+
+}
+
+.image-container{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

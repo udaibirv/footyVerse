@@ -5,6 +5,7 @@ import parseRoute from '../parse-route';
 import Login from './pages/login';
 import LeagueInfo from './pages/league-info';
 import England from './pages/england';
+import France from './pages/france';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,19 +22,19 @@ export default class App extends React.Component {
     });
   }
 
-  renderPage(){
-    const {route} = this.state;
-    if(route.path === ''){
-      return <England />;
+  renderPage() {
+    const { route } = this.state;
+    if (route.path === '') {
+      return <France />;
     }
-    if(route.path === 'login'){
+    if (route.path === 'login') {
       return <Login/>;
     }
   }
 
   render() {
     return (
-    this.renderPage()
+      this.renderPage()
     );
 
   }

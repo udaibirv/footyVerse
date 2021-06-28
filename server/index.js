@@ -149,6 +149,24 @@ app.get('/api/leauge-info/france', (req, res) => {
     }
   );
 });
+app.get('/api/leauge-info/france/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=61&season=2016',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
 
 app.get('/api/leauge-info/spain', (req, res) => {
   request(

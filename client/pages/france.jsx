@@ -6,10 +6,12 @@ export default class France extends React.Component {
       france: []
     };
     this.getFranceInfo = this.getFranceInfo.bind(this);
+    this.getFranceInfo2016 = this.getFranceInfo2016.bind(this);
   }
 
   componentDidMount() {
     this.getFranceInfo();
+    this.getFranceInfo2016();
   }
 
   getFranceInfo() {
@@ -33,13 +35,38 @@ export default class France extends React.Component {
       .catch(error => console.error('error', error));
   }
 
+  getFranceInfo2016(event) {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/france/2016', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ france: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
+  }
+
   render() {
     const { france } = this.state;
+
     let className = '';
     return (
+
       <div className="container-fluid">
         <div className="image-container text-center">
           <img className="league-image" src="https://4.bp.blogspot.com/-4LwsXxqR5wY/Xu9eHQlhwuI/AAAAAAACdf8/6uIxrhfUHnYpXzfqMwwkq--mOq7WxlNgQCNcBGAsYHQ/s550/ligue-1-logo-%25284%2529.png"></img>
+          <button onClick={this.getFranceInfo2016}>2016</button>
+          <button onClick={this.getFranceInfo}>2020</button>
         </div>
         <div className="table-responsive">
           <table className="table table-bordered table-sm">

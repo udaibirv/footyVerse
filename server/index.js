@@ -134,7 +134,7 @@ app.get('/api/leauge-info/germany', (req, res) => {
 app.get('/api/leauge-info/france', (req, res) => {
   request(
     {
-      url: 'https://v3.football.api-sports.io/standings?league=61&season=2019',
+      url: 'https://v3.football.api-sports.io/standings?league=61&season=2020',
       headers: {
         'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
         'Content-Type': 'application/json'

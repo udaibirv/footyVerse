@@ -5,34 +5,17 @@ export default class France extends React.Component {
     this.state = {
       france: []
     };
-    this.getFranceInfo = this.getFranceInfo.bind(this);
     this.getFranceInfo2016 = this.getFranceInfo2016.bind(this);
+    this.getFranceInfo2017 = this.getFranceInfo2017.bind(this);
+    this.getFranceInfo2018 = this.getFranceInfo2018.bind(this);
+    this.getFranceInfo2019 = this.getFranceInfo2019.bind(this);
+    this.getFranceInfo = this.getFranceInfo.bind(this);
+
   }
 
   componentDidMount() {
     this.getFranceInfo();
     this.getFranceInfo2016();
-  }
-
-  getFranceInfo() {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-
-    fetch('/api/leauge-info/france', requestOptions)
-      .then(response => response.json())
-      .then(result => {
-
-        const table = result.response[0].league.standings;
-        table.map((club, index) => {
-          return (
-            this.setState({ france: club })
-          );
-        });
-
-      })
-      .catch(error => console.error('error', error));
   }
 
   getFranceInfo2016(event) {
@@ -56,6 +39,90 @@ export default class France extends React.Component {
       .catch(error => console.error('error', error));
   }
 
+  getFranceInfo2017() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/france/2017', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ france: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
+  }
+
+  getFranceInfo2018() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/france/2018', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ france: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
+  }
+
+  getFranceInfo2019() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/france/2019', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ france: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
+  }
+
+  getFranceInfo() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/france', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ france: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
+  }
+
   render() {
     const { france } = this.state;
 
@@ -63,11 +130,24 @@ export default class France extends React.Component {
     return (
 
       <div className="container-fluid">
+        <div className="row">
+          <div className="col-sm">
+            <button onClick={this.getFranceInfo2016}>16/17</button>
+            <button onClick={this.getFranceInfo2017}>17/18</button>
+            <button onClick={this.getFranceInfo2018}>18/19</button>
+            <button onClick={this.getFranceInfo2019}>19/20</button>
+            <button onClick={this.getFranceInfo}>20/21</button>
+
+          </div>
+
+        </div>
+
         <div className="image-container text-center">
           <img className="league-image" src="https://4.bp.blogspot.com/-4LwsXxqR5wY/Xu9eHQlhwuI/AAAAAAACdf8/6uIxrhfUHnYpXzfqMwwkq--mOq7WxlNgQCNcBGAsYHQ/s550/ligue-1-logo-%25284%2529.png"></img>
-          <button onClick={this.getFranceInfo2016}>2016</button>
-          <button onClick={this.getFranceInfo}>2020</button>
+          {/* <button onClick={this.getFranceInfo2016}>2016</button>
+          <button onClick={this.getFranceInfo}>2020</button> */}
         </div>
+
         <div className="table-responsive">
           <table className="table table-bordered table-sm">
             <thead>

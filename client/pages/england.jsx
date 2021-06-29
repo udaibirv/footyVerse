@@ -5,12 +5,104 @@ export default class England extends React.Component {
     this.state = {
       england: []
     };
+    this.getEnglandInfo2016 = this.getEnglandInfo2016.bind(this);
+    this.getEnglandInfo2017 = this.getEnglandInfo2017.bind(this);
+    this.getEnglandInfo2018 = this.getEnglandInfo2018.bind(this);
+    this.getEnglandInfo2019 = this.getEnglandInfo2019.bind(this);
     this.getEnglandInfo = this.getEnglandInfo.bind(this);
 
   }
 
   componentDidMount() {
     this.getEnglandInfo();
+
+  }
+
+  getEnglandInfo2016() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/england/2016', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ england: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
+
+  }
+
+  getEnglandInfo2017() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/england/2017', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ england: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
+
+  }
+
+  getEnglandInfo2018() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/england/2018', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ england: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
+
+  }
+
+  getEnglandInfo2019() {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    fetch('/api/leauge-info/england/2019', requestOptions)
+      .then(response => response.json())
+      .then(result => {
+
+        const table = result.response[0].league.standings;
+        table.map((club, index) => {
+          return (
+            this.setState({ england: club })
+          );
+        });
+
+      })
+      .catch(error => console.error('error', error));
 
   }
 
@@ -41,6 +133,17 @@ export default class England extends React.Component {
     let className = '';
     return (
     <div className="container-fluid">
+        <div className="row">
+          <div className="col-sm">
+            <button onClick={this.getEnglandInfo2016}>16/17</button>
+            <button onClick={this.getEnglandInfo2017}>17/18</button>
+            <button onClick={this.getEnglandInfo2018}>18/19</button>
+            <button onClick={this.getEnglandInfo2019}>19/20</button>
+            <button onClick={this.getEnglandInfo}>20/21</button>
+
+          </div>
+
+        </div>
       <div className="image-container text-center">
         <img className="league-image" src="https://www.egypttoday.com/siteimages/Larg/202012300620332033.jpg"></img>
       </div>

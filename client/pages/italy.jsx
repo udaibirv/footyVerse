@@ -11,12 +11,12 @@ export default class Italy extends React.Component {
     this.getItalyInfo2017 = this.getItalyInfo2017.bind(this);
     this.getItalyInfo2018 = this.getItalyInfo2018.bind(this);
     this.getItalyInfo2019 = this.getItalyInfo2019.bind(this);
-    this.getItalyInfo = this.getItalyInfo2016.bind(this);
+    this.getItalyInfo2020 = this.getItalyInfo2020.bind(this);
 
   }
 
   componentDidMount() {
-    this.getItalyInfo();
+    this.getItalyInfo2020();
 
   }
 
@@ -108,18 +108,17 @@ export default class Italy extends React.Component {
 
   }
 
-  getItalyInfo() {
+  getItalyInfo2020() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/italy', requestOptions)
+    fetch('/api/leauge-info/italy/2020', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
-        console.log(table);
         table.map((club, index) => {
           return (
             this.setState({ italy: club, season: '20/21' })
@@ -137,12 +136,17 @@ export default class Italy extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row">
+          <a href='#' className="text-secondary anchor">
+            &lt; Back To League Page
+          </a>
+        </div>
+        <div className="row">
           <div className="col-sm">
-            <button onClick={this.getItalyInfo2016}>16/17</button>
-            <button onClick={this.getItalyInfo2017}>17/18</button>
-            <button onClick={this.getItalyInfo2018}>18/19</button>
-            <button onClick={this.getItalyInfo2019}>19/20</button>
-            <button onClick={this.getItalyInfo}>20/21</button>
+            <button className="btn-info" onClick={this.getItalyInfo2016}>16/17</button>
+            <button className="btn-info" onClick={this.getItalyInfo2017}>17/18</button>
+            <button className="btn-info" onClick={this.getItalyInfo2018}>18/19</button>
+            <button className="btn-info" onClick={this.getItalyInfo2019}>19/20</button>
+            <button className="btn-info" onClick={this.getItalyInfo2020}>20/21</button>
 
           </div>
 
@@ -151,7 +155,7 @@ export default class Italy extends React.Component {
           <img className="league-image" src="https://www.soccerbible.com/media/93701/1-serie-a-logo-new.jpg"></img>
         </div>
         <div className="table-responsive">
-          <h5>{season} season</h5>
+          <h5 className="table-header">{season} season</h5>
           <table className="table table-bordered table-sm">
             <thead>
               <tr>

@@ -1,38 +1,38 @@
 import React from 'react';
 
-export default class Login extends React.Component{
-  constructor(props){
+export default class Login extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       username: '',
       password: ''
-    }
+    };
 
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event){
+  handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
-}
+  }
 
-  handleSignIn(){
+  handleSignIn() {
     event.preventDefault();
-      fetch('/api/auth/sign-in', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(this.state)
+    fetch('/api/auth/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('login-data: ', data);
       })
-        .then(res => res.json())
-        .then(data => {
-          console.log("login-data: ", data);
-        })
-        .catch(err => {
-          console.error(err);
-          alert('Invalid login, please try again');
-        });
+      .catch(err => {
+        console.error(err);
+        alert('Invalid login, please try again');
+      });
   }
 
   render() {
@@ -69,6 +69,5 @@ export default class Login extends React.Component{
     );
 
   }
-
 
 }

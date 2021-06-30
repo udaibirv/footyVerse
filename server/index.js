@@ -552,7 +552,7 @@ app.get('/api/leauge-info/italy/2019', (req, res) => {
   );
 });
 
-app.get('/api/leauge-info/italy', (req, res) => {
+app.get('/api/leauge-info/italy/2020', (req, res) => {
   request(
     {
       url: 'https://v3.football.api-sports.io/standings?league=135&season=2020',

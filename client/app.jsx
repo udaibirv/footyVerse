@@ -28,10 +28,30 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <Italy />;
+      return <LeagueInfo />;
     }
     if (route.path === 'login') {
       return <Login/>;
+    }
+
+    if (route.path === 'italy') {
+      return <Italy />;
+    }
+
+    if (route.path === 'spain') {
+      return <Spain />;
+    }
+
+    if (route.path === 'germany') {
+      return <Germany />;
+    }
+
+    if (route.path === 'england') {
+      return <England />;
+    }
+
+    if (route.path === 'france') {
+      return <France />;
     }
   }
 

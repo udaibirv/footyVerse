@@ -4,7 +4,8 @@ export default class Spain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      spain: []
+      spain: [],
+      season: ''
     };
 
     this.getSpainInfo2016 = this.getSpainInfo2016.bind(this);
@@ -31,7 +32,7 @@ export default class Spain extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ spain: club })
+            this.setState({ spain: club, season: '16/17' })
           );
         });
 
@@ -53,7 +54,7 @@ export default class Spain extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ spain: club })
+            this.setState({ spain: club, season: '17/18' })
           );
         });
 
@@ -75,7 +76,7 @@ export default class Spain extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ spain: club })
+            this.setState({ spain: club, season: '18/19' })
           );
         });
 
@@ -97,7 +98,7 @@ export default class Spain extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ spain: club })
+            this.setState({ spain: club, season: '19/20' })
           );
         });
 
@@ -119,7 +120,7 @@ export default class Spain extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ spain: club })
+            this.setState({ spain: club, season: '20/21' })
           );
         });
 
@@ -129,17 +130,22 @@ export default class Spain extends React.Component {
   }
 
   render() {
-    const { spain } = this.state;
+    const { spain, season } = this.state;
     let className = '';
     return (
       <div className="container-fluid">
         <div className="row">
+          <a href='#' className="text-secondary anchor">
+            &lt; Back To League Page
+          </a>
+        </div>
+        <div className="row">
           <div className="col-sm">
-            <button onClick={this.getSpainInfo2016}>16/17</button>
-            <button onClick={this.getSpainInfo2017}>17/18</button>
-            <button onClick={this.getSpainInfo2018}>18/19</button>
-            <button onClick={this.getSpainInfo2019}>19/20</button>
-            <button onClick={this.getSpainInfo}>20/21</button>
+            <button className="btn-info" onClick={this.getSpainInfo2016}>16/17</button>
+            <button className="btn-info" onClick={this.getSpainInfo2017}>17/18</button>
+            <button className="btn-info" onClick={this.getSpainInfo2018}>18/19</button>
+            <button className="btn-info" onClick={this.getSpainInfo2019}>19/20</button>
+            <button className="btn-info" onClick={this.getSpainInfo}>20/21</button>
 
           </div>
 
@@ -147,7 +153,8 @@ export default class Spain extends React.Component {
         <div className="image-container text-center">
           <img className="league-image" src="https://iscreativestudio.com/wp-content/uploads/2016/08/logotipos5.jpg"></img>
         </div>
-        <div className="table-responsive">
+        <div className="table-responsive table-responsive-md">
+          <h5 className="table-header">{season} season</h5>
           <table className="table table-bordered table-sm">
             <thead>
               <tr>

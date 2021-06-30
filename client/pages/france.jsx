@@ -3,7 +3,8 @@ export default class France extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      france: []
+      france: [],
+      season: ''
     };
     this.getFranceInfo2016 = this.getFranceInfo2016.bind(this);
     this.getFranceInfo2017 = this.getFranceInfo2017.bind(this);
@@ -31,7 +32,7 @@ export default class France extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ france: club })
+            this.setState({ france: club, season: '16/17' })
           );
         });
 
@@ -52,7 +53,7 @@ export default class France extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ france: club })
+            this.setState({ france: club, season: '17/18' })
           );
         });
 
@@ -73,7 +74,7 @@ export default class France extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ france: club })
+            this.setState({ france: club, season: '18/19' })
           );
         });
 
@@ -94,7 +95,7 @@ export default class France extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ france: club })
+            this.setState({ france: club, season: '19/20' })
           );
         });
 
@@ -115,7 +116,7 @@ export default class France extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ france: club })
+            this.setState({ france: club, season: '20/21' })
           );
         });
 
@@ -124,19 +125,24 @@ export default class France extends React.Component {
   }
 
   render() {
-    const { france } = this.state;
+    const { france, season } = this.state;
 
     let className = '';
     return (
 
       <div className="container-fluid">
         <div className="row">
+          <a href='#' className="text-secondary anchor">
+            &lt; Back To League Page
+          </a>
+        </div>
+        <div className="row">
           <div className="col-sm">
-            <button onClick={this.getFranceInfo2016}>16/17</button>
-            <button onClick={this.getFranceInfo2017}>17/18</button>
-            <button onClick={this.getFranceInfo2018}>18/19</button>
-            <button onClick={this.getFranceInfo2019}>19/20</button>
-            <button onClick={this.getFranceInfo}>20/21</button>
+            <button className="btn-info" onClick={this.getFranceInfo2016}>16/17</button>
+            <button className="btn-info" onClick={this.getFranceInfo2017}>17/18</button>
+            <button className="btn-info" onClick={this.getFranceInfo2018}>18/19</button>
+            <button className="btn-info" onClick={this.getFranceInfo2019}>19/20</button>
+            <button className="btn-info" onClick={this.getFranceInfo}>20/21</button>
 
           </div>
 
@@ -144,11 +150,10 @@ export default class France extends React.Component {
 
         <div className="image-container text-center">
           <img className="league-image" src="https://4.bp.blogspot.com/-4LwsXxqR5wY/Xu9eHQlhwuI/AAAAAAACdf8/6uIxrhfUHnYpXzfqMwwkq--mOq7WxlNgQCNcBGAsYHQ/s550/ligue-1-logo-%25284%2529.png"></img>
-          {/* <button onClick={this.getFranceInfo2016}>2016</button>
-          <button onClick={this.getFranceInfo}>2020</button> */}
         </div>
 
         <div className="table-responsive">
+          <h5 className="table-header">{season} season</h5>
           <table className="table table-bordered table-sm">
             <thead>
               <tr>

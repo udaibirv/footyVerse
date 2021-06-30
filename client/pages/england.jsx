@@ -3,7 +3,8 @@ export default class England extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      england: []
+      england: [],
+      season: ''
     };
     this.getEnglandInfo2016 = this.getEnglandInfo2016.bind(this);
     this.getEnglandInfo2017 = this.getEnglandInfo2017.bind(this);
@@ -31,7 +32,7 @@ export default class England extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club })
+            this.setState({ england: club, season: '16/17' })
           );
         });
 
@@ -53,7 +54,7 @@ export default class England extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club })
+            this.setState({ england: club, season: '17/18' })
           );
         });
 
@@ -75,7 +76,7 @@ export default class England extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club })
+            this.setState({ england: club, season: '18/19' })
           );
         });
 
@@ -97,7 +98,7 @@ export default class England extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club })
+            this.setState({ england: club, season: '19/20' })
           );
         });
 
@@ -119,7 +120,7 @@ export default class England extends React.Component {
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club })
+            this.setState({ england: club, season: '20/21' })
           );
         });
 
@@ -129,17 +130,22 @@ export default class England extends React.Component {
   }
 
   render() {
-    const { england } = this.state;
+    const { england, season } = this.state;
     let className = '';
     return (
     <div className="container-fluid">
+      <div className="row">
+          <a href='#' className="text-secondary anchor">
+            &lt; Back To League Page
+          </a>
+      </div>
         <div className="row">
           <div className="col-sm">
-            <button onClick={this.getEnglandInfo2016}>16/17</button>
-            <button onClick={this.getEnglandInfo2017}>17/18</button>
-            <button onClick={this.getEnglandInfo2018}>18/19</button>
-            <button onClick={this.getEnglandInfo2019}>19/20</button>
-            <button onClick={this.getEnglandInfo}>20/21</button>
+            <button className="btn-info" onClick={this.getEnglandInfo2016}>16/17</button>
+            <button className="btn-info" onClick={this.getEnglandInfo2017}>17/18</button>
+            <button className="btn-info" onClick={this.getEnglandInfo2018}>18/19</button>
+            <button className="btn-info" onClick={this.getEnglandInfo2019}>19/20</button>
+            <button className="btn-info" onClick={this.getEnglandInfo}>20/21</button>
 
           </div>
 
@@ -148,6 +154,7 @@ export default class England extends React.Component {
         <img className="league-image" src="https://www.egypttoday.com/siteimages/Larg/202012300620332033.jpg"></img>
       </div>
         <div className="table-responsive">
+          <h5 className="table-header">{season} season</h5>
             <table className="table table-bordered table-sm">
             <thead>
               <tr>

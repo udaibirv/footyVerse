@@ -6,6 +6,7 @@ import Login from './pages/login';
 import LeagueInfo from './pages/league-info';
 import England from './pages/england';
 import France from './pages/france';
+import Germany from './pages/germany';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <England />;
+      return <Germany />;
     }
     if (route.path === 'login') {
       return <Login/>;

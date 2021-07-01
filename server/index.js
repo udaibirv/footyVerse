@@ -571,6 +571,25 @@ app.get('/api/leauge-info/italy/2020', (req, res) => {
   );
 });
 
+app.get('/api/england-top-scorers/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2016&league=39',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`express server listening on port ${process.env.PORT}`);

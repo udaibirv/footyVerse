@@ -5,7 +5,7 @@ const staticMiddleware = require('./static-middleware');
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
 const pg = require('pg');
-const  request = require('request');
+const request = require('request');
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -20,10 +20,10 @@ app.use(staticMiddleware);
 app.use(errorMiddleware);
 
 app.post('/api/auth/sign-up', (req, res) => {
-  const {username, password} = req.body;
-  if(!username || !password){
+  const { username, password } = req.body;
+  if (!username || !password) {
     res.status(400).json({
-      error: "username, password are required fields"
+      error: 'username, password are required fields'
     });
   }
   argon2
@@ -35,7 +35,7 @@ app.post('/api/auth/sign-up', (req, res) => {
         returning "userId", "username"
       `;
       const params = [username, hashedPassword];
-      return db.query(sql,params);
+      return db.query(sql, params);
     })
     .then(result => {
       const [user] = result.rows;
@@ -50,8 +50,8 @@ app.post('/api/auth/sign-up', (req, res) => {
 });
 
 app.post('/api/auth/sign-in', (req, res) => {
-  const {username, password} = req.body;
-  if(!username || !password){
+  const { username, password } = req.body;
+  if (!username || !password) {
     return res.status(400).json({
       error: 'invalid login, please enter correct username or password'
     });
@@ -66,25 +66,25 @@ app.post('/api/auth/sign-in', (req, res) => {
   db.query(sql, params)
     .then(result => {
       const [user] = result.rows;
-      if(!user){
+      if (!user) {
         return res.status(401).json({
           error: 'invalid login'
         });
       }
 
-      const {userId, hashedPassword} = user;
+      const { userId, hashedPassword } = user;
       return argon2
         .verify(hashedPassword, password)
         .then(isMatching => {
-          if(!isMatching){
+          if (!isMatching) {
             return res.status(401).json({
               error: 'invalid login'
             });
           }
 
-          const payload = {userId, username};
+          const payload = { userId, username };
           const token = jwt.sign(payload, process.env.TOKEN_SECRET);
-          return res.json({token, user: payload});
+          return res.json({ token, user: payload });
         })
         .catch(error => {
           console.error(error);
@@ -95,7 +95,7 @@ app.post('/api/auth/sign-in', (req, res) => {
 app.get('/api/leauge-info/england', (req, res) => {
   request(
     {
-      url: "https://v3.football.api-sports.io/standings?league=39&season=2019",
+      url: 'https://v3.football.api-sports.io/standings?league=39&season=2020',
       headers: {
         'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
         'Content-Type': 'application/json'
@@ -108,14 +108,14 @@ app.get('/api/leauge-info/england', (req, res) => {
 
       res.json(JSON.parse(body));
     }
-  )
+  );
 
-})
+});
 
-app.get('/api/leauge-info/germany', (req, res) => {
+app.get('/api/leauge-info/england/2019', (req, res) => {
   request(
     {
-      url: "https://v3.football.api-sports.io/leagues?id=78",
+      url: 'https://v3.football.api-sports.io/standings?league=39&season=2019',
       headers: {
         'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
         'Content-Type': 'application/json'
@@ -128,13 +128,169 @@ app.get('/api/leauge-info/germany', (req, res) => {
 
       res.json(JSON.parse(body));
     }
-  )
-})
+  );
+
+});
+
+app.get('/api/leauge-info/england/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=39&season=2016',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+
+});
+
+app.get('/api/leauge-info/england/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=39&season=2017',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+
+});
+
+app.get('/api/leauge-info/england/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=39&season=2018',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+
+});
+
+app.get('/api/leauge-info/germany/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=78&season=2016',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/germany/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=78&season=2017',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/germany/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=78&season=2018',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/germany/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=78&season=2019',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/germany/2020', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=78&season=2020',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
 
 app.get('/api/leauge-info/france', (req, res) => {
   request(
     {
-      url: "https://v3.football.api-sports.io/leagues?id=61",
+      url: 'https://v3.football.api-sports.io/standings?league=61&season=2020',
       headers: {
         'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
         'Content-Type': 'application/json'
@@ -147,14 +303,164 @@ app.get('/api/leauge-info/france', (req, res) => {
 
       res.json(JSON.parse(body));
     }
-  )
-})
+  );
+});
+app.get('/api/leauge-info/france/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=61&season=2016',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
 
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/france/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=61&season=2017',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/france/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=61&season=2018',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/france/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=61&season=2019',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/spain/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=140&season=2016',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/spain/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=140&season=2017',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/spain/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=140&season=2018',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/leauge-info/spain/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=140&season=2019',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
 
 app.get('/api/leauge-info/spain', (req, res) => {
   request(
     {
-      url: "https://v3.football.api-sports.io/leagues?id=140",
+      url: 'https://v3.football.api-sports.io/standings?league=140&season=2020',
       headers: {
         'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
         'Content-Type': 'application/json'
@@ -167,13 +473,13 @@ app.get('/api/leauge-info/spain', (req, res) => {
 
       res.json(JSON.parse(body));
     }
-  )
-})
+  );
+});
 
-app.get('/api/leauge-info/italy', (req, res) => {
+app.get('/api/leauge-info/italy/2016', (req, res) => {
   request(
     {
-      url: "https://v3.football.api-sports.io/leagues?id=135",
+      url: 'https://v3.football.api-sports.io/standings?league=135&season=2016',
       headers: {
         'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
         'Content-Type': 'application/json'
@@ -186,16 +492,84 @@ app.get('/api/leauge-info/italy', (req, res) => {
 
       res.json(JSON.parse(body));
     }
-  )
-})
+  );
+});
 
+app.get('/api/leauge-info/italy/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=135&season=2017',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
 
+      res.json(JSON.parse(body));
+    }
+  );
+});
 
+app.get('/api/leauge-info/italy/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=135&season=2018',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
 
+      res.json(JSON.parse(body));
+    }
+  );
+});
 
+app.get('/api/leauge-info/italy/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=135&season=2019',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
 
+      res.json(JSON.parse(body));
+    }
+  );
+});
 
+app.get('/api/leauge-info/italy/2020', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/standings?league=135&season=2020',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
 
+      res.json(JSON.parse(body));
+    }
+  );
+});
 
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console

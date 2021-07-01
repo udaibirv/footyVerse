@@ -1,38 +1,38 @@
 import React from 'react';
-export default class England extends React.Component {
+
+export default class Spain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      england: [],
+      spain: [],
       season: ''
     };
-    this.getEnglandInfo2016 = this.getEnglandInfo2016.bind(this);
-    this.getEnglandInfo2017 = this.getEnglandInfo2017.bind(this);
-    this.getEnglandInfo2018 = this.getEnglandInfo2018.bind(this);
-    this.getEnglandInfo2019 = this.getEnglandInfo2019.bind(this);
-    this.getEnglandInfo = this.getEnglandInfo.bind(this);
 
+    this.getSpainInfo2016 = this.getSpainInfo2016.bind(this);
+    this.getSpainInfo2017 = this.getSpainInfo2017.bind(this);
+    this.getSpainInfo2018 = this.getSpainInfo2018.bind(this);
+    this.getSpainInfo2019 = this.getSpainInfo2019.bind(this);
+    this.getSpainInfo = this.getSpainInfo.bind(this);
   }
 
   componentDidMount() {
-    this.getEnglandInfo();
-
+    this.getSpainInfo();
   }
 
-  getEnglandInfo2016() {
+  getSpainInfo2016() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england/2016', requestOptions)
+    fetch('/api/leauge-info/spain/2016', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '16/17' })
+            this.setState({ spain: club, season: '16/17' })
           );
         });
 
@@ -41,20 +41,20 @@ export default class England extends React.Component {
 
   }
 
-  getEnglandInfo2017() {
+  getSpainInfo2017() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england/2017', requestOptions)
+    fetch('/api/leauge-info/spain/2017', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '17/18' })
+            this.setState({ spain: club, season: '17/18' })
           );
         });
 
@@ -63,20 +63,20 @@ export default class England extends React.Component {
 
   }
 
-  getEnglandInfo2018() {
+  getSpainInfo2018() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england/2018', requestOptions)
+    fetch('/api/leauge-info/spain/2018', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '18/19' })
+            this.setState({ spain: club, season: '18/19' })
           );
         });
 
@@ -85,20 +85,20 @@ export default class England extends React.Component {
 
   }
 
-  getEnglandInfo2019() {
+  getSpainInfo2019() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england/2019', requestOptions)
+    fetch('/api/leauge-info/spain/2019', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '19/20' })
+            this.setState({ spain: club, season: '19/20' })
           );
         });
 
@@ -107,20 +107,20 @@ export default class England extends React.Component {
 
   }
 
-  getEnglandInfo() {
+  getSpainInfo() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england', requestOptions)
+    fetch('/api/leauge-info/spain', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '20/21' })
+            this.setState({ spain: club, season: '20/21' })
           );
         });
 
@@ -130,32 +130,32 @@ export default class England extends React.Component {
   }
 
   render() {
-    const { england, season } = this.state;
+    const { spain, season } = this.state;
     let className = '';
     return (
-    <div className="container-fluid england-container">
-      <div className="row">
+      <div className="container-fluid">
+        <div className="row">
           <a href='#' className="text-secondary anchor">
             &lt; Back To League Page
           </a>
-      </div>
-        {/* <div className="row">
-          <div className="col-sm"> */}
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2016}>16/17</button>
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2017}>17/18</button>
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2018}>18/19</button>
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2019}>19/20</button>
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo}>20/21</button>
+        </div>
+        <div className="row">
+          <div className="col-sm">
+            <button className="spain-button sixteen btn btn-sm" onClick={this.getSpainInfo2016}>16/17</button>
+            <button className="spain-button seventeen btn btn-sm" onClick={this.getSpainInfo2017}>17/18</button>
+            <button className="spain-button eighteen btn btn-sm" onClick={this.getSpainInfo2018}>18/19</button>
+            <button className="spain-button nineteen btn btn-sm"onClick={this.getSpainInfo2019}>19/20</button>
+            <button className="spain-button twenty btn btn-sm"onClick={this.getSpainInfo}>20/21</button>
 
-          {/* </div>
+          </div>
 
-        </div> */}
-      <div className="image-container text-center">
-        <img className="league-image" src="https://www.egypttoday.com/siteimages/Larg/202012300620332033.jpg"></img>
-      </div>
-        <div className="table-responsive">
-          <h5 className="england-header">{season} season</h5>
-            <table className="table table-bordered table-sm england-table">
+        </div>
+        <div className="image-container text-center">
+          <img className="league-image" src="https://iscreativestudio.com/wp-content/uploads/2016/08/logotipos5.jpg"></img>
+        </div>
+        <div className="table-responsive table-responsive-md">
+          <h5 className="spain-header">{season} season</h5>
+          <table className="spain-table table table-bordered table-sm">
             <thead>
               <tr>
                 <th scope="col">Position</th>
@@ -168,7 +168,7 @@ export default class England extends React.Component {
             </thead>
             <tbody>
               {
-                england.map((info, j) => {
+                spain.map((info, j) => {
                   if (info.rank === 1) {
                     className = 'table-success';
                   } else if (info.rank >= 2 && info.rank < 5) {
@@ -183,9 +183,9 @@ export default class England extends React.Component {
                       <td className={className}>
                         {info.rank}
 
-                        </td>
+                      </td>
                       <td className={className}>
-                        <img className="team-logo" src={info.team.logo}/>
+                        <img className="team-logo" src={info.team.logo} />
                         {info.team.name}
                       </td>
                       <td className={className}>{info.all.win}</td>
@@ -200,7 +200,8 @@ export default class England extends React.Component {
             </tbody>
           </table>
         </div>
-    </div>
+      </div>
     );
   }
+
 }

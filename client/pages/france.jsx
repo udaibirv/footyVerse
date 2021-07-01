@@ -1,161 +1,160 @@
 import React from 'react';
-export default class England extends React.Component {
+export default class France extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      england: [],
+      france: [],
       season: ''
     };
-    this.getEnglandInfo2016 = this.getEnglandInfo2016.bind(this);
-    this.getEnglandInfo2017 = this.getEnglandInfo2017.bind(this);
-    this.getEnglandInfo2018 = this.getEnglandInfo2018.bind(this);
-    this.getEnglandInfo2019 = this.getEnglandInfo2019.bind(this);
-    this.getEnglandInfo = this.getEnglandInfo.bind(this);
+    this.getFranceInfo2016 = this.getFranceInfo2016.bind(this);
+    this.getFranceInfo2017 = this.getFranceInfo2017.bind(this);
+    this.getFranceInfo2018 = this.getFranceInfo2018.bind(this);
+    this.getFranceInfo2019 = this.getFranceInfo2019.bind(this);
+    this.getFranceInfo = this.getFranceInfo.bind(this);
 
   }
 
   componentDidMount() {
-    this.getEnglandInfo();
+    this.getFranceInfo();
 
   }
 
-  getEnglandInfo2016() {
+  getFranceInfo2016(event) {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england/2016', requestOptions)
+    fetch('/api/leauge-info/france/2016', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '16/17' })
+            this.setState({ france: club, season: '16/17' })
           );
         });
 
       })
       .catch(error => console.error('error', error));
-
   }
 
-  getEnglandInfo2017() {
+  getFranceInfo2017() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england/2017', requestOptions)
+    fetch('/api/leauge-info/france/2017', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '17/18' })
+            this.setState({ france: club, season: '17/18' })
           );
         });
 
       })
       .catch(error => console.error('error', error));
-
   }
 
-  getEnglandInfo2018() {
+  getFranceInfo2018() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england/2018', requestOptions)
+    fetch('/api/leauge-info/france/2018', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '18/19' })
+            this.setState({ france: club, season: '18/19' })
           );
         });
 
       })
       .catch(error => console.error('error', error));
-
   }
 
-  getEnglandInfo2019() {
+  getFranceInfo2019() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england/2019', requestOptions)
+    fetch('/api/leauge-info/france/2019', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '19/20' })
+            this.setState({ france: club, season: '19/20' })
           );
         });
 
       })
       .catch(error => console.error('error', error));
-
   }
 
-  getEnglandInfo() {
+  getFranceInfo() {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    fetch('/api/leauge-info/england', requestOptions)
+    fetch('/api/leauge-info/france', requestOptions)
       .then(response => response.json())
       .then(result => {
 
         const table = result.response[0].league.standings;
         table.map((club, index) => {
           return (
-            this.setState({ england: club, season: '20/21' })
+            this.setState({ france: club, season: '20/21' })
           );
         });
 
       })
       .catch(error => console.error('error', error));
-
   }
 
   render() {
-    const { england, season } = this.state;
+    const { france, season } = this.state;
+
     let className = '';
     return (
-    <div className="container-fluid england-container">
-      <div className="row">
+
+      <div className="container-fluid">
+        <div className="row">
           <a href='#' className="text-secondary anchor">
             &lt; Back To League Page
           </a>
-      </div>
-        {/* <div className="row">
-          <div className="col-sm"> */}
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2016}>16/17</button>
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2017}>17/18</button>
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2018}>18/19</button>
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2019}>19/20</button>
-            <button className="england-button btn btn-sm" onClick={this.getEnglandInfo}>20/21</button>
+        </div>
+        <div className="row">
+          <div className="col-sm">
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo2016}>16/17</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo2017}>17/18</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo2018}>18/19</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo2019}>19/20</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo}>20/21</button>
 
-          {/* </div>
+          </div>
 
-        </div> */}
-      <div className="image-container text-center">
-        <img className="league-image" src="https://www.egypttoday.com/siteimages/Larg/202012300620332033.jpg"></img>
-      </div>
+        </div>
+
+        <div className="image-container text-center">
+          <img className="league-image" src="https://4.bp.blogspot.com/-4LwsXxqR5wY/Xu9eHQlhwuI/AAAAAAACdf8/6uIxrhfUHnYpXzfqMwwkq--mOq7WxlNgQCNcBGAsYHQ/s550/ligue-1-logo-%25284%2529.png"></img>
+        </div>
+
         <div className="table-responsive">
-          <h5 className="england-header">{season} season</h5>
-            <table className="table table-bordered table-sm england-table">
+          <h5 className="french-header">{season} Season</h5>
+          <table className="french-table table table-bordered table-sm">
             <thead>
               <tr>
                 <th scope="col">Position</th>
@@ -168,7 +167,7 @@ export default class England extends React.Component {
             </thead>
             <tbody>
               {
-                england.map((info, j) => {
+                france.map((info, j) => {
                   if (info.rank === 1) {
                     className = 'table-success';
                   } else if (info.rank >= 2 && info.rank < 5) {
@@ -183,9 +182,9 @@ export default class England extends React.Component {
                       <td className={className}>
                         {info.rank}
 
-                        </td>
+                      </td>
                       <td className={className}>
-                        <img className="team-logo" src={info.team.logo}/>
+                        <img className="team-logo" src={info.team.logo} />
                         {info.team.name}
                       </td>
                       <td className={className}>{info.all.win}</td>
@@ -200,7 +199,8 @@ export default class England extends React.Component {
             </tbody>
           </table>
         </div>
-    </div>
+      </div>
     );
   }
+
 }

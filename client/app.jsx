@@ -5,6 +5,10 @@ import parseRoute from '../parse-route';
 import Login from './pages/login';
 import LeagueInfo from './pages/league-info';
 import England from './pages/england';
+import France from './pages/france';
+import Germany from './pages/germany';
+import Spain from './pages/spain';
+import Italy from './pages/italy';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,19 +25,39 @@ export default class App extends React.Component {
     });
   }
 
-  renderPage(){
-    const {route} = this.state;
-    if(route.path === ''){
+  renderPage() {
+    const { route } = this.state;
+    if (route.path === '') {
+      return <LeagueInfo />;
+    }
+    if (route.path === 'login') {
+      return <Login/>;
+    }
+
+    if (route.path === 'italy') {
+      return <Italy />;
+    }
+
+    if (route.path === 'spain') {
+      return <Spain />;
+    }
+
+    if (route.path === 'germany') {
+      return <Germany />;
+    }
+
+    if (route.path === 'england') {
       return <England />;
     }
-    if(route.path === 'login'){
-      return <Login/>;
+
+    if (route.path === 'france') {
+      return <France />;
     }
   }
 
   render() {
     return (
-    this.renderPage()
+      this.renderPage()
     );
 
   }

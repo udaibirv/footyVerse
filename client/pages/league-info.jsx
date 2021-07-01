@@ -16,8 +16,7 @@ export default class LeagueInfo extends React.Component {
                     <div className="card-body">
                       <h5 className="card-title ">England</h5>
                       <p className="card-text">The Premier League is England's top flight division. With the highest television contracts in world football, the Premier League is considered
-                to be one of the most exciting leagues in the world due to the heavy influx of money. England's most successful team is Manchester United, winning the league
-                a total of 13 times since the league was founded in 1992. Other successful teams include Chelsea, Manchester City, Liverpool,
+                to be one of the most exciting leagues in the world due to the heavy influx of money. England's most successful team is Liverpool FC who have won 48 major trophies  since the club was founded in 1892. Other successful teams include Manchester United, Chelsea, Manchester City,
                 and Arsenal FC.
                       </p>
                       <a href="#england" className="text-center">League Info</a>

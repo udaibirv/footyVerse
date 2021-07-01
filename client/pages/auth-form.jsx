@@ -1,29 +1,28 @@
 import React from 'react';
 
 export default class AuthForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       user: {
         username: '',
         password: ''
       }
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
-  handleChange(event){
-    const {name, value} = event.target;
+  handleChange(event) {
+    const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   }
 
-  handleSubmit(){
-    event.preventDefault()
+  handleSubmit() {
+    event.preventDefault();
     fetch('/api/auth/sign-up', {
       method: 'POST',
       headers: {
@@ -33,15 +32,13 @@ export default class AuthForm extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({user: data});
-        console.log("data : ", data);
+        this.setState({ user: data });
+        console.log('data : ', data);
         window.location.hash('#league');
-      })
+      });
   }
 
-
-
-  render(){
+  render() {
     return (
 
       <div className=" bg-image-login">

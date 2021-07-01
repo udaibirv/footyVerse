@@ -3,6 +3,8 @@
 
 }
 
+
+
 .bg-image-login{
   background-image: url("https://images.unsplash.com/photo-1546717003-caee5f93a9db?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=victor-garcia-raesgfwU7iM-unsplash.jpg");
   background-position: center;
@@ -33,9 +35,9 @@ form{
 
 .league-card{
   width: 18rem;
-  background-color: #F3D34A!important;
+  background-color: black!important;
   margin-top: 2rem;
-  color: white;
+  color: #F3D34A;
 }
 
 .card-img-top{
@@ -117,4 +119,54 @@ table{
 }
 .german-table{
   color: #DF2935;
+}
+.italy-button{
+  color: white;
+  background-color: #134074;
+}
+
+.italy-table{
+  color: #134074;
+}
+
+.italy-header{
+  color: #134074;
+  font-family: 'Architects Daughter', cursive;
+}
+
+.france-button{
+  background-color: #BCED09;
+  color: #134074;
+}
+
+.french-header{
+  color: #134074;
+  font-family: 'Architects Daughter', cursive;
+}
+
+.french-table{
+  color: #134074;
+}
+
+.sixteen{
+  background-color: #FE9000;
+}
+.seventeen{
+  background-color: #FFDD4A;
+}
+
+.eighteen{
+  background-color: rgb(131, 212, 131);
+}
+
+.nineteen{
+  background-color: rgb(194, 230, 241);
+}
+
+.twenty{
+  background-color: rgb(212, 77, 212);
+}
+
+.spain-header{
+  font-family: 'Architects Daughter', cursive;
 }

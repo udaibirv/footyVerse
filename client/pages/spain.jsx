@@ -141,11 +141,11 @@ export default class Spain extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm">
-            <button onClick={this.getSpainInfo2016}>16/17</button>
-            <button onClick={this.getSpainInfo2017}>17/18</button>
-            <button onClick={this.getSpainInfo2018}>18/19</button>
-            <button onClick={this.getSpainInfo2019}>19/20</button>
-            <button onClick={this.getSpainInfo}>20/21</button>
+            <button className="spain-button sixteen btn btn-sm" onClick={this.getSpainInfo2016}>16/17</button>
+            <button className="spain-button seventeen btn btn-sm" onClick={this.getSpainInfo2017}>17/18</button>
+            <button className="spain-button eighteen btn btn-sm" onClick={this.getSpainInfo2018}>18/19</button>
+            <button className="spain-button nineteen btn btn-sm"onClick={this.getSpainInfo2019}>19/20</button>
+            <button className="spain-button twenty btn btn-sm"onClick={this.getSpainInfo}>20/21</button>
 
           </div>
 
@@ -154,8 +154,8 @@ export default class Spain extends React.Component {
           <img className="league-image" src="https://iscreativestudio.com/wp-content/uploads/2016/08/logotipos5.jpg"></img>
         </div>
         <div className="table-responsive table-responsive-md">
-          <h5 className="table-header">{season} season</h5>
-          <table className="table table-bordered table-sm">
+          <h5 className="spain-header">{season} season</h5>
+          <table className="spain-table table table-bordered table-sm">
             <thead>
               <tr>
                 <th scope="col">Position</th>

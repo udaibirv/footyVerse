@@ -138,11 +138,11 @@ export default class France extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm">
-            <button onClick={this.getFranceInfo2016}>16/17</button>
-            <button onClick={this.getFranceInfo2017}>17/18</button>
-            <button onClick={this.getFranceInfo2018}>18/19</button>
-            <button onClick={this.getFranceInfo2019}>19/20</button>
-            <button onClick={this.getFranceInfo}>20/21</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo2016}>16/17</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo2017}>17/18</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo2018}>18/19</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo2019}>19/20</button>
+            <button className="france-button btn btn-sm" onClick={this.getFranceInfo}>20/21</button>
 
           </div>
 
@@ -153,8 +153,8 @@ export default class France extends React.Component {
         </div>
 
         <div className="table-responsive">
-          <h5 className="table-header">{season} Season</h5>
-          <table className="table table-bordered table-sm">
+          <h5 className="french-header">{season} Season</h5>
+          <table className="french-table table table-bordered table-sm">
             <thead>
               <tr>
                 <th scope="col">Position</th>

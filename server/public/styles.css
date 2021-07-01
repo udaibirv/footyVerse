@@ -70,7 +70,7 @@ body{
 }
 
 .league-image{
-  height: 6rem;
+  height: 10rem;
 
 }
 
@@ -87,6 +87,34 @@ table{
   max-height: 100%;
 }
 
-button{
+.england-button{
   cursor: pointer;
+  background-color: #3D2B56;
+  color: white;
+}
+
+.england-header{
+  font-family: 'Architects Daughter', cursive;
+  color: #3D2B56;
+}
+
+.england-table{
+  color: #3D2B56;
+}
+
+.btn{
+  margin-left: .2rem;
+}
+
+.germany-button{
+  background-color: #DF2935;
+  color: white;
+}
+
+.german-header{
+  color: #DF2935;
+  font-family: 'Architects Daughter', cursive;
+}
+.german-table{
+  color: #DF2935;
 }

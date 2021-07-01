@@ -16,7 +16,7 @@ export default class France extends React.Component {
 
   componentDidMount() {
     this.getFranceInfo();
-    this.getFranceInfo2016();
+
   }
 
   getFranceInfo2016(event) {
@@ -138,11 +138,11 @@ export default class France extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm">
-            <button className="btn-info" onClick={this.getFranceInfo2016}>16/17</button>
-            <button className="btn-info" onClick={this.getFranceInfo2017}>17/18</button>
-            <button className="btn-info" onClick={this.getFranceInfo2018}>18/19</button>
-            <button className="btn-info" onClick={this.getFranceInfo2019}>19/20</button>
-            <button className="btn-info" onClick={this.getFranceInfo}>20/21</button>
+            <button onClick={this.getFranceInfo2016}>16/17</button>
+            <button onClick={this.getFranceInfo2017}>17/18</button>
+            <button onClick={this.getFranceInfo2018}>18/19</button>
+            <button onClick={this.getFranceInfo2019}>19/20</button>
+            <button onClick={this.getFranceInfo}>20/21</button>
 
           </div>
 
@@ -153,7 +153,7 @@ export default class France extends React.Component {
         </div>
 
         <div className="table-responsive">
-          <h5 className="table-header">{season} season</h5>
+          <h5 className="table-header">{season} Season</h5>
           <table className="table table-bordered table-sm">
             <thead>
               <tr>

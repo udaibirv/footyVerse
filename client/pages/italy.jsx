@@ -142,11 +142,11 @@ export default class Italy extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm">
-            <button className="btn-info" onClick={this.getItalyInfo2016}>16/17</button>
-            <button className="btn-info" onClick={this.getItalyInfo2017}>17/18</button>
-            <button className="btn-info" onClick={this.getItalyInfo2018}>18/19</button>
-            <button className="btn-info" onClick={this.getItalyInfo2019}>19/20</button>
-            <button className="btn-info" onClick={this.getItalyInfo2020}>20/21</button>
+            <button onClick={this.getItalyInfo2016}>16/17</button>
+            <button onClick={this.getItalyInfo2017}>17/18</button>
+            <button onClick={this.getItalyInfo2018}>18/19</button>
+            <button onClick={this.getItalyInfo2019}>19/20</button>
+            <button onClick={this.getItalyInfo2020}>20/21</button>
 
           </div>
 

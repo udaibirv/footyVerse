@@ -136,11 +136,11 @@ export default class Germany extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm">
-            <button className="btn-info" onClick={this.getGermanyInfo2016}>16/17</button>
-            <button className="btn-info" onClick={this.getGermanyInfo2017}>17/18</button>
-            <button className="btn-info" onClick={this.getGermanyInfo2018}>18/19</button>
-            <button className="btn-info" onClick={this.getGermanyInfo2019}>19/20</button>
-            <button className="btn-info" onClick={this.getGermanyInfo2020}>20/21</button>
+            <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2016}>16/17</button>
+            <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2017}>17/18</button>
+            <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2018}>18/19</button>
+            <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2019}>19/20</button>
+            <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2020}>20/21</button>
 
           </div>
 
@@ -149,8 +149,8 @@ export default class Germany extends React.Component {
           <img className="league-image" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/1200px-Bundesliga_logo_%282017%29.svg.png"></img>
         </div>
         <div className="table-responsive">
-          <h5 className="table-header">{season} season</h5>
-          <table className="table table-bordered table-sm">
+          <h5 className="table-header german-header">{season} season</h5>
+          <table className="table table-bordered table-sm german-table">
             <thead>
               <tr>
                 <th scope="col">Position</th>

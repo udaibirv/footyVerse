@@ -141,11 +141,11 @@ export default class Spain extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm">
-            <button className="btn-info" onClick={this.getSpainInfo2016}>16/17</button>
-            <button className="btn-info" onClick={this.getSpainInfo2017}>17/18</button>
-            <button className="btn-info" onClick={this.getSpainInfo2018}>18/19</button>
-            <button className="btn-info" onClick={this.getSpainInfo2019}>19/20</button>
-            <button className="btn-info" onClick={this.getSpainInfo}>20/21</button>
+            <button onClick={this.getSpainInfo2016}>16/17</button>
+            <button onClick={this.getSpainInfo2017}>17/18</button>
+            <button onClick={this.getSpainInfo2018}>18/19</button>
+            <button onClick={this.getSpainInfo2019}>19/20</button>
+            <button onClick={this.getSpainInfo}>20/21</button>
 
           </div>
 

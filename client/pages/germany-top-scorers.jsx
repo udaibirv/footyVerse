@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class EnglandTopScorers extends React.Component {
+export default class GermanyTopScorers extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +25,7 @@ export default class EnglandTopScorers extends React.Component {
       redirect: 'follow'
     };
 
-    fetch('/api/england-top-scorers/2016', requestOptions)
+    fetch('/api/germany-top-scorers/2016', requestOptions)
       .then(response => response.json())
       .then(result => {
 
@@ -43,7 +43,7 @@ export default class EnglandTopScorers extends React.Component {
       redirect: 'follow'
     };
 
-    fetch('/api/england-top-scorers/2017', requestOptions)
+    fetch('/api/germany-top-scorers/2017', requestOptions)
       .then(response => response.json())
       .then(result => {
 
@@ -61,7 +61,7 @@ export default class EnglandTopScorers extends React.Component {
       redirect: 'follow'
     };
 
-    fetch('/api/england-top-scorers/2018', requestOptions)
+    fetch('/api/germany-top-scorers/2018', requestOptions)
       .then(response => response.json())
       .then(result => {
 
@@ -79,7 +79,7 @@ export default class EnglandTopScorers extends React.Component {
       redirect: 'follow'
     };
 
-    fetch('/api/england-top-scorers/2019', requestOptions)
+    fetch('/api/germany-top-scorers/2019', requestOptions)
       .then(response => response.json())
       .then(result => {
 
@@ -97,7 +97,7 @@ export default class EnglandTopScorers extends React.Component {
       redirect: 'follow'
     };
 
-    fetch('/api/england-top-scorers/2020', requestOptions)
+    fetch('/api/germany-top-scorers/2020', requestOptions)
       .then(response => response.json())
       .then(result => {
 
@@ -120,21 +120,21 @@ export default class EnglandTopScorers extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm">
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2016}>16/17</button>
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2017}>17/18</button>
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
+            <button className="germany-button btn btn-sm" onClick={this.getTopScorer2016}>16/17</button>
+            <button className="germany-button btn btn-sm" onClick={this.getTopScorer2017}>17/18</button>
+            <button className="germany-button btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
+            <button className="germany-button btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
+            <button className="germany-button btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
 
-        </div>
+          </div>
 
         </div>
         <div className="image-container text-center">
-          <img className="league-image" src="https://www.egypttoday.com/siteimages/Larg/202012300620332033.jpg"></img>
+          <img className="league-image" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/1200px-Bundesliga_logo_%282017%29.svg.png"></img>
         </div>
         <div className="table-responsive">
-          <h5 className="england-header">{season} Top Scorers</h5>
-          <table className="table table-bordered table-sm england-table">
+          <h5 className="german-header">{season} Top Scorers</h5>
+          <table className="table table-bordered table-sm germany-table">
             <thead>
               <tr>
                 <th scope="col">Player</th>
@@ -179,17 +179,3 @@ export default class EnglandTopScorers extends React.Component {
     );
   }
 }
-
-// scorer.map((player, j) => {
-//   return (
-//     <div key={j}>
-//       <h3>{player.player.firstname}</h3>
-//     </div>
-
-//   );
-// })
-
-{ /* <td>
-                        <img className="team-logo" src={info.statistics.team.logo} />
-                        {info.team.name}
-                      </td> */ }

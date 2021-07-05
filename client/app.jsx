@@ -10,6 +10,8 @@ import Germany from './pages/germany';
 import Spain from './pages/spain';
 import Italy from './pages/italy';
 import EnglandTopScorers from './pages/england-top-scorers';
+import GermanyTopScorers from './pages/germany-top-scorers';
+import FranceTopScorers from './pages/france-top-scorers';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +30,7 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <EnglandTopScorers />;
+      return <FranceTopScorers />;
     }
     if (route.path === 'login') {
       return <Login/>;

@@ -6,7 +6,7 @@
 
 
 .bg-image-login{
-  background-image: url("https://images.unsplash.com/photo-1546717003-caee5f93a9db?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=victor-garcia-raesgfwU7iM-unsplash.jpg");
+  background-image: url("https://images.unsplash.com/photo-1511204338744-5d4e9b3ffee0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=willian-justen-de-vasconcellos-KqpDuf1i83w-unsplash.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,11 +14,16 @@
   height: 100vh;
 }
 
+.auth-header{
+  font-family: 'Tourney', cursive;
+  color: white;
+}
+
 form{
-  margin-top: 8rem;
+  margin-top: 6rem;
 }
 .auth-form-group{
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 }
 .auth-password, .auth-username{
   padding-right: .2rem;
@@ -27,11 +32,16 @@ form{
   margin-top: 4rem;
 }
 
-.card{
+label{
+  font-family: 'Tourney', cursive;
+  color: white;
+}
+
+/* .card{
   margin: 0 auto;
   width: 20rem;
-  /* use important for background color  */
-}
+  /* use important for background color
+}*/
 
 .league-card{
   width: 18rem;
@@ -47,6 +57,9 @@ form{
 
 a{
   margin: 0 auto;
+}
+.link{
+  color:white;
 }
 
 p{
@@ -169,4 +182,18 @@ table{
 
 .spain-header{
   font-family: 'Architects Daughter', cursive;
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+.auth-container{
+  position: relative;
+  top: 5%;
+}
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+.auth-container{
+  margin-top: 3rem;
+}
 }

@@ -41,30 +41,35 @@ export default class AuthForm extends React.Component {
   render() {
     return (
 
-      <div className=" bg-image-login">
-        <div className="container-fluid">
+      <div className="bg-image-login">
+        <div className="container-fluid auth-container">
           <div className="row form-row justify-content-center align-items-center">
             <div className="col justify-content-center align-items-center text-center">
             <form className="auth-form">
-              <div className="card text-center card-color">
-                <h4 className="auth-header text-center">Create an Account</h4>
-                <a href="#login">Already have an account?</a>
-                <div className="auth-form-group mb-4">
+
+                <h3 className="auth-header text-center">Welcome to FootyVerse</h3>
+                <h6 className="auth-header text-center">Please Create an Account to Enter</h6>
+                <a className="link"href="#login">Already have an account?</a>
+                <div className="auth-form-group">
+                  <div className="label-div">
                   <label className="auth-username" htmlFor="username">
                     Username
                   </label>
+                  </div>
                   <input required id="username" type="text" name="username" onChange={this.handleChange}/>
                   </div>
                 <div className="auth-form-group">
+                  <div className="label-div">
                   <label className="auth-password">
                     Password
                   </label>
+                  </div>
                   <input required id="password" type="password" name="password" onChange={this.handleChange}/>
                 </div>
                 <button type="submit" className="btn auth-button">
                   Sign Up!
                 </button>
-              </div>
+
               </form>
             </div>
           </div>

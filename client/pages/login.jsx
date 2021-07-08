@@ -43,7 +43,7 @@ export default class Login extends React.Component {
           <div className="row form-row justify-content-center align-items-center">
             <div className="col justify-content-center align-items-center text-center">
               <form className="auth-form">
-                <div className="card text-center">
+
                   <h4 className="auth-header text-center">Sign In</h4>
                   <div className="auth-form-group mb-4">
                     <label className="auth-username" htmlFor="username">
@@ -60,7 +60,7 @@ export default class Login extends React.Component {
                   <button type="submit" className="btn auth-button">
                     Enter
                 </button>
-                </div>
+
               </form>
             </div>
           </div>

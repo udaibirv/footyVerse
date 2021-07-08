@@ -33,7 +33,7 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <EnglandTopScorers />;
+      return <AuthForm />;
     }
     if (route.path === 'login') {
       return <Login/>;

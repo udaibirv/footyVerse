@@ -44,12 +44,11 @@ export default class AuthForm extends React.Component {
       <div className="bg-image-login">
         <div className="container-fluid auth-container">
           <div className="row form-row justify-content-center align-items-center">
-            <div className="col justify-content-center align-items-center text-center">
-            <form className="auth-form">
 
-                <h3 className="auth-header text-center">Welcome to FootyVerse</h3>
-                <h6 className="auth-header text-center">Please Create an Account to Enter</h6>
-                <a className="link"href="#login">Already have an account?</a>
+            <div className="col justify-content-center align-items-center text-center">
+              <h2 className="auth-header welcome-message text-center">FootyVerse</h2>
+              <a className="link auth-header" href="#login">Already have an account?</a>
+            <form className="auth-form">
                 <div className="auth-form-group">
                   <div className="label-div">
                   <label className="auth-username" htmlFor="username">
@@ -66,7 +65,7 @@ export default class AuthForm extends React.Component {
                   </div>
                   <input required id="password" type="password" name="password" onChange={this.handleChange}/>
                 </div>
-                <button type="submit" className="btn auth-button">
+                <button type="submit" className="btn btn-primary auth-button">
                   Sign Up!
                 </button>
 

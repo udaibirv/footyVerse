@@ -6,18 +6,22 @@
 
 
 .bg-image-login{
-  background-image: url("https://images.unsplash.com/photo-1511204338744-5d4e9b3ffee0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=willian-justen-de-vasconcellos-KqpDuf1i83w-unsplash.jpg");
+  background-image: url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=connor-coyne-OgqWLzWRSaI-unsplash.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+
 }
 
-.auth-header{
+.auth-welcome, .auth-header{
   font-family: 'Tourney', cursive;
   color: white;
+  font-size: xx-large;
 }
+
+
 
 form{
   margin-top: 6rem;
@@ -59,7 +63,7 @@ a{
   margin: 0 auto;
 }
 .link{
-  color:white;
+  font-size: small;
 }
 
 p{
@@ -186,14 +190,60 @@ table{
 
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-.auth-container{
+.bg-image-login{
+  background-size: contain;
+}
+.auth-form{
   position: relative;
-  top: 5%;
+  top: 3rem;
 }
 }
 
-@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
-.auth-container{
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait){
+.auth-form{
+  margin-top: 9.5rem;
+}
+
+}
+
+@media only screen and (min-device-width : 667px)  and (orientation : landscape) {
+.bg-image-login{
+  height: 100%;
+}
+.auth-button{
+  margin-bottom: 2.5rem;
+}
+}
+@media only screen and (min-device-width : 1024px) and (min-device-height: 768px)  and (orientation : landscape) {
+  .bg-image-login{
+    height: 60rem;
+}
+.auth-form{
   margin-top: 3rem;
 }
+
+}
+
+
+@media only screen and (min-device-width : 1024px) and (min-device-height: 768px)  and (orientation : landscape) {
+  .bg-image-login{
+    height: 60rem;
+  }
+  .auth-form{
+    margin-top: 4rem;
+  }
+}
+
+
+@media only screen and (min-device-width : 414px) and (min-device-height: 736px)  and (orientation : portrait) {
+  .auth-form{
+    margin-top: 1.4rem;
+  }
+}
+
+@media only screen and (min-device-width : 414px) and (min-device-height: 896px)  and (orientation : portrait) {
+  .auth-form{
+    position: relative;
+    top: 3rem;
+  }
 }

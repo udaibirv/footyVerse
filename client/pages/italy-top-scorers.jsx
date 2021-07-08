@@ -150,13 +150,18 @@ export default class ItalyTopScorers extends React.Component {
               return (
                 <tr scope="row" key={j}>
                   <td>
+                    <div>
+                      {info.player.name}
+                    </div>
                     <img className="team-logo" src={info.player.photo} />
-                    {info.player.name}
                   </td>
 
                   <td>
+                    <div>
+                      {info.statistics.[0].team.name}
+                    </div>
                     <img className="team-logo" src={info.statistics.[0].team.logo} />
-                    {info.statistics.[0].team.name}
+
                   </td>
 
                   <td>

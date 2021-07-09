@@ -34,11 +34,12 @@ export default class AuthForm extends React.Component {
       .then(data => {
         this.setState({ user: data });
         console.log('data : ', data);
-        window.location.hash('#league');
+        window.location.hash('#league-page');
       });
   }
 
   render() {
+    const { handleChange, handleSubmit } = this;
     return (
 
       <div className="bg-image-login">
@@ -46,16 +47,16 @@ export default class AuthForm extends React.Component {
           <div className="row form-row justify-content-center align-items-center">
 
             <div className="col justify-content-center align-items-center text-center">
-              <h2 className="auth-header welcome-message text-center">FootyVerse</h2>
-              <a className="link auth-header" href="#login">Already have an account?</a>
-            <form className="auth-form">
+              <h2 className="auth-header welcome-message text-center">Welcome to FootyVerse</h2>
+              <a className="link " href="#login">Already have an account?</a>
+            <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="auth-form-group">
                   <div className="label-div">
                   <label className="auth-username" htmlFor="username">
                     Username
                   </label>
                   </div>
-                  <input required id="username" type="text" name="username" onChange={this.handleChange}/>
+                  <input required id="username" type="text" name="username" onChange={handleChange}/>
                   </div>
                 <div className="auth-form-group">
                   <div className="label-div">
@@ -63,7 +64,7 @@ export default class AuthForm extends React.Component {
                     Password
                   </label>
                   </div>
-                  <input required id="password" type="password" name="password" onChange={this.handleChange}/>
+                  <input required id="password" type="password" name="password" onChange={handleChange}/>
                 </div>
                 <button type="submit" className="btn btn-primary auth-button">
                   Sign Up!

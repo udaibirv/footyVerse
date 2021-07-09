@@ -9,6 +9,11 @@ import France from './pages/france';
 import Germany from './pages/germany';
 import Spain from './pages/spain';
 import Italy from './pages/italy';
+import EnglandTopScorers from './pages/england-top-scorers';
+import GermanyTopScorers from './pages/germany-top-scorers';
+import FranceTopScorers from './pages/france-top-scorers';
+import ItalyTopScorers from './pages/italy-top-scorers';
+import SpainTopScorers from './pages/spain-top-scorers';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -28,10 +33,14 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <LeagueInfo />;
+      return <GermanyTopScorers />;
     }
     if (route.path === 'login') {
       return <Login/>;
+    }
+
+    if (route.path === 'league-page') {
+      return <LeagueInfo/>;
     }
 
     if (route.path === 'italy') {

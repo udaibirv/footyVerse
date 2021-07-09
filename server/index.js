@@ -571,6 +571,481 @@ app.get('/api/leauge-info/italy/2020', (req, res) => {
   );
 });
 
+app.get('/api/england-top-scorers/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2016&league=39',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/england-top-scorers/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2017&league=39',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/england-top-scorers/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2018&league=39',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/england-top-scorers/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2019&league=39',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/england-top-scorers/2020', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2020&league=39',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/germany-top-scorers/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2016&league=78',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/germany-top-scorers/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2017&league=78',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/germany-top-scorers/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2018&league=78',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/germany-top-scorers/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2019&league=78',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/germany-top-scorers/2020', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2020&league=78',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/france-top-scorers/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2016&league=61',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/france-top-scorers/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2017&league=61',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/france-top-scorers/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2018&league=61',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/france-top-scorers/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2019&league=61',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/france-top-scorers/2020', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?season=2020&league=61',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/italy-top-scorers/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=135&season=2016',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/italy-top-scorers/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=135&season=2017',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/italy-top-scorers/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=135&season=2018',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/italy-top-scorers/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=135&season=2019',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/italy-top-scorers/2020', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=135&season=2020',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/spain-top-scorers/2016', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=140&season=2016',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/spain-top-scorers/2017', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=140&season=2017',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/spain-top-scorers/2018', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=140&season=2018',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/spain-top-scorers/2019', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=140&season=2019',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
+app.get('/api/spain-top-scorers/2020', (req, res) => {
+  request(
+    {
+      url: 'https://v3.football.api-sports.io/players/topscorers?league=140&season=2020',
+      headers: {
+        'x-apisports-key': '55079badf90d509b71c69c823d5f377e',
+        'Content-Type': 'application/json'
+      }
+    },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message });
+      }
+
+      res.json(JSON.parse(body));
+    }
+  );
+});
+
 app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`express server listening on port ${process.env.PORT}`);

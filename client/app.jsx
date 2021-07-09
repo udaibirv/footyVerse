@@ -14,6 +14,7 @@ import GermanyTopScorers from './pages/germany-top-scorers';
 import FranceTopScorers from './pages/france-top-scorers';
 import ItalyTopScorers from './pages/italy-top-scorers';
 import SpainTopScorers from './pages/spain-top-scorers';
+import Header from './pages/header';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -33,40 +34,64 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <GermanyTopScorers />;
+      return <AuthForm />;
     }
     if (route.path === 'login') {
       return <Login/>;
     }
 
     if (route.path === 'league-page') {
-      return <LeagueInfo/>;
+      return <>
+        <Header />
+        <LeagueInfo />
+      </>;
     }
 
     if (route.path === 'italy') {
-      return <Italy />;
+      return <>
+      <Header/>
+      <Italy/>
+      </>;
+
     }
 
     if (route.path === 'spain') {
-      return <Spain />;
+      return <>
+        <Header />
+        <Spain />
+      </>;
     }
 
     if (route.path === 'germany') {
-      return <Germany />;
+      return <>
+        <Header />
+        <Germany />
+      </>;
     }
 
     if (route.path === 'england') {
-      return <England />;
+      return <>
+        <Header />
+        <England/>
+      </>;
     }
 
     if (route.path === 'france') {
-      return <France />;
+      return <>
+      <Header />
+      <France />
+      </>;
     }
   }
 
   render() {
+    const { route } = this.state;
     return (
-      this.renderPage()
+
+      <>
+
+        {this.renderPage()}
+      </>
     );
 
   }

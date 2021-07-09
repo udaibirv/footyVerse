@@ -138,6 +138,9 @@ export default class England extends React.Component {
           <a href='#' className="text-secondary anchor">
             &lt; Back To League Page
           </a>
+          <a href='#englandscorers' className="text-secondary anchor">
+            &gt; English Top Scorers
+          </a>
       </div>
         {/* <div className="row">
           <div className="col-sm"> */}

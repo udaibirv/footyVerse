@@ -16,6 +16,8 @@ const db = new pg.Pool({
 const app = express();
 
 app.use(staticMiddleware);
+const jsonMiddleware = express.json();
+app.use(jsonMiddleware);
 
 app.use(errorMiddleware);
 
@@ -30,9 +32,9 @@ app.post('/api/auth/sign-up', (req, res) => {
     .hash(password)
     .then(hashedPassword => {
       const sql = `
-        insert into "users" ("username", "hashedPassword")
-        values ($1, $2)
-        returning "userId", "username"
+      insert into "users" ("username", "hashedPassword")
+      values ($1, $2)
+      returning "userId", "username"
       `;
       const params = [username, hashedPassword];
       return db.query(sql, params);
@@ -60,7 +62,7 @@ app.post('/api/auth/sign-in', (req, res) => {
   const sql = `
     select "userId", "hashedPassword"
       from "users"
-      where "username = $1
+      where "username" = $1
   `;
   const params = [username];
   db.query(sql, params)

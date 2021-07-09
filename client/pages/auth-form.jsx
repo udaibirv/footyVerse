@@ -4,10 +4,10 @@ export default class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        username: '',
-        password: ''
-      }
+
+      username: '',
+      password: ''
+
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,7 +21,7 @@ export default class AuthForm extends React.Component {
     });
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
     event.preventDefault();
     fetch('/api/auth/sign-up', {
       method: 'POST',
@@ -32,9 +32,9 @@ export default class AuthForm extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ user: data });
+        this.setState({ data });
         console.log('data : ', data);
-        window.location.hash('#league-page');
+        window.location.hash = '#league-page';
       });
   }
 

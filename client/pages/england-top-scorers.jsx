@@ -114,8 +114,8 @@ export default class EnglandTopScorers extends React.Component {
     return (
       <div className="container-fluid england-container">
         <div className="row">
-          <a href='#league-page' className="text-secondary anchor">
-            &lt; Back To League Page
+          <a href='#england' className="text-secondary anchor">
+            &lt; Back To League Table
           </a>
         </div>
         <div className="row">
@@ -184,17 +184,3 @@ export default class EnglandTopScorers extends React.Component {
     );
   }
 }
-
-// scorer.map((player, j) => {
-//   return (
-//     <div key={j}>
-//       <h3>{player.player.firstname}</h3>
-//     </div>
-
-//   );
-// })
-
-{ /* <td>
-                        <img className="team-logo" src={info.statistics.team.logo} />
-                        {info.team.name}
-                      </td> */ }

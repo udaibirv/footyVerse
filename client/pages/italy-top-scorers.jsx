@@ -115,8 +115,8 @@ export default class ItalyTopScorers extends React.Component {
     return (
   <div className="container-fluid england-container">
     <div className="row">
-      <a href='#' className="text-secondary anchor">
-        &lt; Back To League Page
+      <a href='#italy' className="text-secondary anchor">
+        &lt; Back To League Table
       </a>
     </div>
     <div className="row">

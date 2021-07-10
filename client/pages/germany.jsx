@@ -130,8 +130,11 @@ export default class Germany extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <a href='#' className="text-secondary anchor">
+          <a href='#league-page' className="text-secondary anchor">
             &lt; Back To League Page
+          </a>
+          <a href='#german-scorers' className="text-secondary anchor">
+            Top Scorers &#62;
           </a>
         </div>
         <div className="row">
@@ -180,8 +183,10 @@ export default class Germany extends React.Component {
 
                       </td>
                       <td className={className}>
+                        <div>
+                          {info.team.name}
+                        </div>
                         <img className="team-logo" src={info.team.logo} />
-                        {info.team.name}
                       </td>
                       <td className={className}>{info.all.win}</td>
                       <td className={className}>{info.all.lose}</td>

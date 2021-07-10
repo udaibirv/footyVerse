@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthForm from './pages/auth-form';
-import Home from './pages/home';
+
 import parseRoute from '../parse-route';
 import Login from './pages/login';
 import LeagueInfo from './pages/league-info';
@@ -82,10 +82,44 @@ export default class App extends React.Component {
       <France />
       </>;
     }
+
+    if (route.path === 'england-scorers') {
+      return <>
+      <Header />
+      <EnglandTopScorers />
+      </>;
+    }
+
+    if (route.path === 'france-scorers') {
+      return <>
+        <Header />
+        <FranceTopScorers />
+      </>;
+    }
+
+    if (route.path === 'italy-scorers') {
+      return <>
+        <Header />
+        <ItalyTopScorers />
+      </>;
+    }
+
+    if (route.path === 'spain-scorers') {
+      return <>
+        <Header />
+        <SpainTopScorers />
+      </>;
+    }
+
+    if (route.path === 'german-scorers') {
+      return <>
+        <Header />
+        <GermanyTopScorers />
+      </>;
+    }
   }
 
   render() {
-    const { route } = this.state;
     return (
 
       <>

@@ -1,6 +1,5 @@
 import React from 'react';
 import AuthForm from './pages/auth-form';
-
 import parseRoute from '../parse-route';
 import Login from './pages/login';
 import LeagueInfo from './pages/league-info';

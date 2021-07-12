@@ -295,6 +295,10 @@ table{
   top: 1rem;
 }
 
+.italy-card{
+  position: relative;
+  height: 37.2rem;
+}
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait){

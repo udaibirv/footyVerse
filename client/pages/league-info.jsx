@@ -74,9 +74,9 @@ export default class LeagueInfo extends React.Component {
                 <img className="card-img-top" src="https://i1.wp.com/www.logofootball.net/wp-content/uploads/La-Liga-Logo.png?resize=350%2C200&ssl=1"></img>
                 <div className="card-body">
                   <h5 className="card-title spain-title text-center ">Spain</h5>
-                <p className="card-text text-center">La Liga is Spains top flight division and is home to some of the most exciting football in the world. As a whole, Spain`&apos;`s style of play revolves around
+                <p className="card-text text-center">La Liga is Spain&apos;s top flight division and is home to some of the most exciting football in the world. As a whole, Spain&apos;s style of play revolves around
                 sound fundamentals, and a strong foundation of passing which results in an aesthetically pleasing way to enjoy the beautiful game. La Liga is the home of
-                two of the most popular and successful clubs in the world, Real Madrid and FC Barcelona, and their matchups dubbed `&quot;`El Classico`&quot;` brings in hundreds of millions of viewers.
+                two of the most popular and successful clubs in the world, Real Madrid and FC Barcelona, and their matchups dubbed &quot;El Classico&quot; brings in hundreds of millions of viewers.
                   </p>
                 <a href="#spain">
                   <button type="button" className="btn btn-sm text-center spa-button mx-auto d-block">League Info</button>

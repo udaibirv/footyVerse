@@ -44,7 +44,6 @@ export default class AuthForm extends React.Component {
       <div className="bg-image-login">
         <div className="container-fluid auth-container">
           <div className="row form-row justify-content-center align-items-center">
-
             <div className="col justify-content-center align-items-center text-center">
               <h2 className="auth-header welcome-message text-center">Welcome to FootyVerse</h2>
               <a className="link " href="#login">
@@ -70,7 +69,6 @@ export default class AuthForm extends React.Component {
                 <button type="submit" className="btn btn-primary auth-button">
                   Sign Up!
                 </button>
-
               </form>
             </div>
           </div>

@@ -142,7 +142,6 @@ export default class England extends React.Component {
             Top Scorers &#62;
           </a>
       </div>
-
             <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2016}>16/17</button>
             <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2017}>17/18</button>
             <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2018}>18/19</button>
@@ -180,7 +179,6 @@ export default class England extends React.Component {
                     <tr scope="row" key={j}>
                       <td className={className}>
                         {info.rank}
-
                         </td>
                       <td className={className}>
                         <img className="team-logo" src={info.team.logo}/>
@@ -194,7 +192,6 @@ export default class England extends React.Component {
                   );
                 })
               }
-
             </tbody>
           </table>
         </div>

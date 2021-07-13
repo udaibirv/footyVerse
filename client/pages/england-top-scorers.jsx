@@ -120,14 +120,12 @@ export default class EnglandTopScorers extends React.Component {
         </div>
         <div className="row">
           <div className="col-sm">
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2016}>16/17</button>
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2017}>17/18</button>
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
-        <button className="england-button btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
-
-        </div>
-
+            <button className="england-button btn btn-sm" onClick={this.getTopScorer2016}>16/17</button>
+            <button className="england-button btn btn-sm" onClick={this.getTopScorer2017}>17/18</button>
+            <button className="england-button btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
+            <button className="england-button btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
+            <button className="england-button btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
+          </div>
         </div>
         <div className="image-container text-center">
           <img className="league-image" src="https://www.egypttoday.com/siteimages/Larg/202012300620332033.jpg"></img>
@@ -175,7 +173,6 @@ export default class EnglandTopScorers extends React.Component {
                   );
                 })
               }
-
             </tbody>
           </table>
         </div>

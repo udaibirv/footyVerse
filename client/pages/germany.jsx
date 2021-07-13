@@ -144,9 +144,7 @@ export default class Germany extends React.Component {
             <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2018}>18/19</button>
             <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2019}>19/20</button>
             <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2020}>20/21</button>
-
           </div>
-
         </div>
         <div className="image-container text-center">
           <img className="league-image" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/1200px-Bundesliga_logo_%282017%29.svg.png"></img>

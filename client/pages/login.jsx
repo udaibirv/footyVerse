@@ -17,7 +17,6 @@ export default class Login extends React.Component {
   }
 
   handleSignIn(result) {
-
     event.preventDefault();
     fetch('/api/auth/sign-in', {
       method: 'POST',
@@ -30,7 +29,6 @@ export default class Login extends React.Component {
       .then(data => {
         window.localStorage.setItem('token', data.token);
         window.location.hash = '#league-page';
-
       })
       .catch(err => {
         console.error(err);
@@ -40,7 +38,6 @@ export default class Login extends React.Component {
 
   render() {
     return (
-
       <div className="bg-image-login ">
         <div className="container-fluid">
           <div className="row form-row justify-content-center align-items-center">
@@ -69,14 +66,12 @@ export default class Login extends React.Component {
                   <button type="submit" className="btn btn-primary auth-button">
                     Enter!
                 </button>
-
               </form>
             </div>
           </div>
         </div>
       </div>
     );
-
   }
 
 }

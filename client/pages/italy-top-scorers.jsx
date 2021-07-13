@@ -126,9 +126,7 @@ export default class ItalyTopScorers extends React.Component {
         <button className="italy-button btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
         <button className="italy-button btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
         <button className="italy-button btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
-
       </div>
-
     </div>
     <div className="image-container text-center">
         <img className="league-image" src="https://www.soccerbible.com/media/93701/1-serie-a-logo-new.jpg"></img>
@@ -176,7 +174,6 @@ export default class ItalyTopScorers extends React.Component {
               );
             })
           }
-
         </tbody>
       </table>
     </div>

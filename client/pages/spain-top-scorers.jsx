@@ -122,9 +122,7 @@ export default class SpainTopScorers extends React.Component {
             <button className="spain-button eighteen btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
             <button className="spain-button nineteen btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
             <button className="spain-button twenty btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
-
           </div>
-
         </div>
         <div className="image-container text-center">
           <img className="league-image" src="https://iscreativestudio.com/wp-content/uploads/2016/08/logotipos5.jpg"></img>

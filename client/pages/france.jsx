@@ -146,15 +146,11 @@ export default class France extends React.Component {
             <button className="france-button btn btn-sm" onClick={this.getFranceInfo2018}>18/19</button>
             <button className="france-button btn btn-sm" onClick={this.getFranceInfo2019}>19/20</button>
             <button className="france-button btn btn-sm" onClick={this.getFranceInfo}>20/21</button>
-
           </div>
-
         </div>
-
         <div className="image-container text-center">
           <img className="league-image" src="https://4.bp.blogspot.com/-4LwsXxqR5wY/Xu9eHQlhwuI/AAAAAAACdf8/6uIxrhfUHnYpXzfqMwwkq--mOq7WxlNgQCNcBGAsYHQ/s550/ligue-1-logo-%25284%2529.png"></img>
         </div>
-
         <div className="table-responsive">
           <h5 className="french-header">{season} Season</h5>
           <table className="french-table table table-bordered table-sm">
@@ -184,7 +180,6 @@ export default class France extends React.Component {
                     <tr scope="row" key={j}>
                       <td className={className}>
                         {info.rank}
-
                       </td>
                       <td className={className}>
                         <img className="team-logo" src={info.team.logo} />

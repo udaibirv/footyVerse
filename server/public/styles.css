@@ -466,5 +466,32 @@ table{
   height: 80rem;
 }
 
+}
 
+@media only screen and (min-device-width: 736px) and (orientation: landscape){
+.league-card{
+  position: relative;
+  left: 11rem;
+}
+}
+
+@media only screen and (min-device-width: 667px) and (orientation: landscape){
+.league-card{
+  position: relative;
+  left: 1rem;
+}
+}
+
+@media only screen and (min-device-width: 568px) and (orientation: landscape){
+.league-card{
+  position: relative;
+  left: 8rem;
+}
+}
+
+@media only screen and (min-device-width: 812px) and (orientation: landscape){
+.league-card{
+  position: relative;
+  left: 4rem;
+}
 }

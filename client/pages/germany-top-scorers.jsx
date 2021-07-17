@@ -114,8 +114,8 @@ export default class GermanyTopScorers extends React.Component {
     return (
       <div className="container-fluid england-container">
         <div className="row">
-          <a href='#' className="text-secondary anchor">
-            &lt; Back To League Page
+          <a href='#germany' className="text-secondary anchor">
+            &lt; Back To League Table
           </a>
         </div>
         <div className="row">
@@ -125,9 +125,7 @@ export default class GermanyTopScorers extends React.Component {
             <button className="germany-button btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
             <button className="germany-button btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
             <button className="germany-button btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
-
           </div>
-
         </div>
         <div className="image-container text-center">
           <img className="league-image" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/1200px-Bundesliga_logo_%282017%29.svg.png"></img>
@@ -175,7 +173,6 @@ export default class GermanyTopScorers extends React.Component {
                   );
                 })
               }
-
             </tbody>
           </table>
         </div>

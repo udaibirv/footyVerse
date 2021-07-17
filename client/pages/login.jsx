@@ -16,7 +16,7 @@ export default class Login extends React.Component {
     this.setState({ [event.target.id]: event.target.value });
   }
 
-  handleSignIn() {
+  handleSignIn(result) {
     event.preventDefault();
     fetch('/api/auth/sign-in', {
       method: 'POST',
@@ -27,8 +27,8 @@ export default class Login extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log('login-data: ', data);
-        window.location.hash('#league-page');
+        window.localStorage.setItem('token', data.token);
+        window.location.hash = '#league-page';
       })
       .catch(err => {
         console.error(err);
@@ -38,14 +38,15 @@ export default class Login extends React.Component {
 
   render() {
     return (
-
       <div className="bg-image-login ">
         <div className="container-fluid">
           <div className="row form-row justify-content-center align-items-center">
             <div className="col justify-content-center align-items-center text-center">
               <h2 className="login-message sign-in text-center">Please Sign In</h2>
-              <a className="link login-link " href="#">Create an Account!</a>
-              <form className="auth-form login-form">
+              <a className="link " href="#">
+                <button type="button" className="btn btn-sm btn-primary account-button ">Create an Account</button>
+              </a>
+              <form className="auth-form login-form" onSubmit={this.handleSignIn}>
                   <div className="auth-form-group mb-4">
                     <div className="label-div">
                       <label className="auth-username" htmlFor="username">
@@ -62,17 +63,15 @@ export default class Login extends React.Component {
                   </div>
                     <input required id="password" type="password" name="password" onChange={this.handleChange} />
                   </div>
-                  <button onClick={this.handleSignIn} type="submit" className="btn btn-primary auth-button">
+                  <button type="submit" className="btn btn-primary auth-button">
                     Enter!
                 </button>
-
               </form>
             </div>
           </div>
         </div>
       </div>
     );
-
   }
 
 }

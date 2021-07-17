@@ -130,8 +130,11 @@ export default class Germany extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <a href='#' className="text-secondary anchor">
+          <a href='#league-page' className="text-secondary anchor">
             &lt; Back To League Page
+          </a>
+          <a href='#german-scorers' className="text-secondary anchor">
+            Top Scorers &#62;
           </a>
         </div>
         <div className="row">
@@ -141,9 +144,7 @@ export default class Germany extends React.Component {
             <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2018}>18/19</button>
             <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2019}>19/20</button>
             <button className="germany-button btn btn-sm" onClick={this.getGermanyInfo2020}>20/21</button>
-
           </div>
-
         </div>
         <div className="image-container text-center">
           <img className="league-image" src="https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Bundesliga_logo_%282017%29.svg/1200px-Bundesliga_logo_%282017%29.svg.png"></img>
@@ -180,8 +181,10 @@ export default class Germany extends React.Component {
 
                       </td>
                       <td className={className}>
+                        <div>
+                          {info.team.name}
+                        </div>
                         <img className="team-logo" src={info.team.logo} />
-                        {info.team.name}
                       </td>
                       <td className={className}>{info.all.win}</td>
                       <td className={className}>{info.all.lose}</td>

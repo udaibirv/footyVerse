@@ -111,8 +111,8 @@ export default class SpainTopScorers extends React.Component {
     return (
       <div className="container-fluid england-container">
         <div className="row">
-          <a href='#league-page' className="text-secondary anchor">
-            &lt; Back To League Page
+          <a href='#spain' className="text-secondary anchor">
+            &lt; Back To League Table
           </a>
         </div>
         <div className="row">
@@ -122,9 +122,7 @@ export default class SpainTopScorers extends React.Component {
             <button className="spain-button eighteen btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
             <button className="spain-button nineteen btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
             <button className="spain-button twenty btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
-
           </div>
-
         </div>
         <div className="image-container text-center">
           <img className="league-image" src="https://iscreativestudio.com/wp-content/uploads/2016/08/logotipos5.jpg"></img>

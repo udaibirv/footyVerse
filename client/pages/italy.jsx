@@ -136,8 +136,11 @@ export default class Italy extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <a href='#' className="text-secondary anchor">
+          <a href='#league-page' className="text-secondary anchor">
             &lt; Back To League Page
+          </a>
+          <a href='#italy-scorers' className="text-secondary anchor">
+            Top Scorers &#62;
           </a>
         </div>
         <div className="row">
@@ -147,9 +150,7 @@ export default class Italy extends React.Component {
             <button className="italy-button btn btn-sm" onClick={this.getItalyInfo2018}>18/19</button>
             <button className="italy-button btn btn-sm" onClick={this.getItalyInfo2019}>19/20</button>
             <button className="italy-button btn btn-sm" onClick={this.getItalyInfo2020}>20/21</button>
-
           </div>
-
         </div>
         <div className="image-container text-center">
           <img className="league-image" src="https://www.soccerbible.com/media/93701/1-serie-a-logo-new.jpg"></img>
@@ -183,7 +184,6 @@ export default class Italy extends React.Component {
                     <tr scope="row" key={j}>
                       <td className={className}>
                         {info.rank}
-
                       </td>
                       <td className={className}>
                         <img className="team-logo" src={info.team.logo} />
@@ -197,7 +197,6 @@ export default class Italy extends React.Component {
                   );
                 })
               }
-
             </tbody>
           </table>
         </div>

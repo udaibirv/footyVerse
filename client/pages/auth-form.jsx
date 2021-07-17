@@ -4,10 +4,10 @@ export default class AuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        username: '',
-        password: ''
-      }
+
+      username: '',
+      password: ''
+
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,7 +21,7 @@ export default class AuthForm extends React.Component {
     });
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
     event.preventDefault();
     fetch('/api/auth/sign-up', {
       method: 'POST',
@@ -32,9 +32,8 @@ export default class AuthForm extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ user: data });
-        console.log('data : ', data);
-        window.location.hash('#league-page');
+        this.setState({ data });
+        window.location.hash = '#league-page';
       });
   }
 
@@ -45,10 +44,11 @@ export default class AuthForm extends React.Component {
       <div className="bg-image-login">
         <div className="container-fluid auth-container">
           <div className="row form-row justify-content-center align-items-center">
-
             <div className="col justify-content-center align-items-center text-center">
               <h2 className="auth-header welcome-message text-center">Welcome to FootyVerse</h2>
-              <a className="link " href="#login">Already have an account?</a>
+              <a className="link " href="#login">
+                <button type="button" className="btn btn-sm btn-primary ">Already Have an Account?</button>
+              </a>
             <form className="auth-form" onSubmit={handleSubmit}>
                 <div className="auth-form-group">
                   <div className="label-div">
@@ -69,7 +69,6 @@ export default class AuthForm extends React.Component {
                 <button type="submit" className="btn btn-primary auth-button">
                   Sign Up!
                 </button>
-
               </form>
             </div>
           </div>

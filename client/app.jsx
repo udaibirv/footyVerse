@@ -1,6 +1,5 @@
 import React from 'react';
 import AuthForm from './pages/auth-form';
-import Home from './pages/home';
 import parseRoute from '../parse-route';
 import Login from './pages/login';
 import LeagueInfo from './pages/league-info';
@@ -14,6 +13,7 @@ import GermanyTopScorers from './pages/germany-top-scorers';
 import FranceTopScorers from './pages/france-top-scorers';
 import ItalyTopScorers from './pages/italy-top-scorers';
 import SpainTopScorers from './pages/spain-top-scorers';
+import Header from './pages/header';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -33,40 +33,98 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
-      return <GermanyTopScorers />;
+      return <AuthForm />;
     }
     if (route.path === 'login') {
       return <Login/>;
     }
 
     if (route.path === 'league-page') {
-      return <LeagueInfo/>;
+      return <>
+        <Header />
+        <LeagueInfo />
+      </>;
     }
 
     if (route.path === 'italy') {
-      return <Italy />;
+      return <>
+      <Header/>
+      <Italy/>
+      </>;
+
     }
 
     if (route.path === 'spain') {
-      return <Spain />;
+      return <>
+        <Header />
+        <Spain />
+      </>;
     }
 
     if (route.path === 'germany') {
-      return <Germany />;
+      return <>
+        <Header />
+        <Germany />
+      </>;
     }
 
     if (route.path === 'england') {
-      return <England />;
+      return <>
+        <Header />
+        <England/>
+      </>;
     }
 
     if (route.path === 'france') {
-      return <France />;
+      return <>
+      <Header />
+      <France />
+      </>;
+    }
+
+    if (route.path === 'england-scorers') {
+      return <>
+      <Header />
+      <EnglandTopScorers />
+      </>;
+    }
+
+    if (route.path === 'france-scorers') {
+      return <>
+        <Header />
+        <FranceTopScorers />
+      </>;
+    }
+
+    if (route.path === 'italy-scorers') {
+      return <>
+        <Header />
+        <ItalyTopScorers />
+      </>;
+    }
+
+    if (route.path === 'spain-scorers') {
+      return <>
+        <Header />
+        <SpainTopScorers />
+      </>;
+    }
+
+    if (route.path === 'german-scorers') {
+      return <>
+        <Header />
+        <GermanyTopScorers />
+      </>;
     }
   }
 
   render() {
     return (
-      this.renderPage()
+
+      <>
+
+        {this.renderPage()}
+      </>
     );
 
   }

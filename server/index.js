@@ -16,6 +16,8 @@ const db = new pg.Pool({
 const app = express();
 
 app.use(staticMiddleware);
+const jsonMiddleware = express.json();
+app.use(jsonMiddleware);
 
 app.use(errorMiddleware);
 
@@ -30,9 +32,9 @@ app.post('/api/auth/sign-up', (req, res) => {
     .hash(password)
     .then(hashedPassword => {
       const sql = `
-        insert into "users" ("username", "hashedPassword")
-        values ($1, $2)
-        returning "userId", "username"
+      insert into "users" ("username", "hashedPassword")
+      values ($1, $2)
+      returning "userId", "username"
       `;
       const params = [username, hashedPassword];
       return db.query(sql, params);
@@ -60,7 +62,7 @@ app.post('/api/auth/sign-in', (req, res) => {
   const sql = `
     select "userId", "hashedPassword"
       from "users"
-      where "username = $1
+      where "username" = $1
   `;
   const params = [username];
   db.query(sql, params)
@@ -103,7 +105,7 @@ app.get('/api/leauge-info/england', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -123,7 +125,7 @@ app.get('/api/leauge-info/england/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -143,7 +145,7 @@ app.get('/api/leauge-info/england/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -163,7 +165,7 @@ app.get('/api/leauge-info/england/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -183,7 +185,7 @@ app.get('/api/leauge-info/england/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -203,7 +205,7 @@ app.get('/api/leauge-info/germany/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -222,7 +224,7 @@ app.get('/api/leauge-info/germany/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -241,7 +243,7 @@ app.get('/api/leauge-info/germany/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -260,7 +262,7 @@ app.get('/api/leauge-info/germany/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -279,7 +281,7 @@ app.get('/api/leauge-info/germany/2020', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -298,7 +300,7 @@ app.get('/api/leauge-info/france', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -316,7 +318,7 @@ app.get('/api/leauge-info/france/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -335,7 +337,7 @@ app.get('/api/leauge-info/france/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -354,7 +356,7 @@ app.get('/api/leauge-info/france/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -373,7 +375,7 @@ app.get('/api/leauge-info/france/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -392,7 +394,7 @@ app.get('/api/leauge-info/spain/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -411,7 +413,7 @@ app.get('/api/leauge-info/spain/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -430,7 +432,7 @@ app.get('/api/leauge-info/spain/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -449,7 +451,7 @@ app.get('/api/leauge-info/spain/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -468,7 +470,7 @@ app.get('/api/leauge-info/spain', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -487,7 +489,7 @@ app.get('/api/leauge-info/italy/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -506,7 +508,7 @@ app.get('/api/leauge-info/italy/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -525,7 +527,7 @@ app.get('/api/leauge-info/italy/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -544,7 +546,7 @@ app.get('/api/leauge-info/italy/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -563,7 +565,7 @@ app.get('/api/leauge-info/italy/2020', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -582,7 +584,7 @@ app.get('/api/england-top-scorers/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -601,7 +603,7 @@ app.get('/api/england-top-scorers/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -620,7 +622,7 @@ app.get('/api/england-top-scorers/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -639,7 +641,7 @@ app.get('/api/england-top-scorers/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -658,7 +660,7 @@ app.get('/api/england-top-scorers/2020', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -677,7 +679,7 @@ app.get('/api/germany-top-scorers/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -696,7 +698,7 @@ app.get('/api/germany-top-scorers/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -715,7 +717,7 @@ app.get('/api/germany-top-scorers/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -734,7 +736,7 @@ app.get('/api/germany-top-scorers/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -753,7 +755,7 @@ app.get('/api/germany-top-scorers/2020', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -772,7 +774,7 @@ app.get('/api/france-top-scorers/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -791,7 +793,7 @@ app.get('/api/france-top-scorers/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -810,7 +812,7 @@ app.get('/api/france-top-scorers/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -829,7 +831,7 @@ app.get('/api/france-top-scorers/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -848,7 +850,7 @@ app.get('/api/france-top-scorers/2020', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -867,7 +869,7 @@ app.get('/api/italy-top-scorers/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -886,7 +888,7 @@ app.get('/api/italy-top-scorers/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -905,7 +907,7 @@ app.get('/api/italy-top-scorers/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -924,7 +926,7 @@ app.get('/api/italy-top-scorers/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -943,7 +945,7 @@ app.get('/api/italy-top-scorers/2020', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -962,7 +964,7 @@ app.get('/api/spain-top-scorers/2016', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -981,7 +983,7 @@ app.get('/api/spain-top-scorers/2017', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -1000,7 +1002,7 @@ app.get('/api/spain-top-scorers/2018', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -1019,7 +1021,7 @@ app.get('/api/spain-top-scorers/2019', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -1038,7 +1040,7 @@ app.get('/api/spain-top-scorers/2020', (req, res) => {
     },
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: 'error', message: err.message });
+        return res.status(500).json({ type: 'error', message: error.message });
       }
 
       res.json(JSON.parse(body));

@@ -3,6 +3,9 @@
 
 }
 
+.sign-out-image{
+  height: 35px;
+}
 
 
 .bg-image-login{
@@ -44,17 +47,21 @@ label{
   color: white;
 }
 
-/* .card{
-  margin: 0 auto;
-  width: 20rem;
-  /* use important for background color
-}*/
 
 .league-card{
   width: 18rem;
-  background-color: black!important;
   margin-top: 2rem;
-  color: #F3D34A;
+}
+
+.league-info-header{
+  font-family: 'Cinzel', serif;
+  position: relative;
+  top: 1rem;
+}
+
+.england-card{
+  color: purple;
+
 }
 
 .card-img-top{
@@ -64,6 +71,7 @@ label{
 
 a{
   margin: 0 auto;
+  cursor: pointer;
 }
 .link{
   font-size: small;
@@ -77,13 +85,76 @@ body{
 }
 
 
-.header{
-  font-family: 'Architects Daughter', cursive;
-  color: #F3D34A
+
+.england-title{
+  font-family: 'Domine', sans-serif;
+  color:#00FFF5;
+}
+.german-title{
+  font-family: 'Domine', sans-serif;
+  color: #DF2935;
+}
+.italy-card{
+  color: #6c93c0;
+}
+.italy-title{
+  font-family: 'Domine', sans-serif;
+  color: #134074;
 }
 
-.card-title{
-  color: #F3D34A;
+.france-title{
+  font-family: 'Domine', sans-serif;
+  color: #BCED09;
+}
+
+.france-card{
+  color: #134074;
+}
+
+.spain-card{
+  color: rgb(17, 178, 228);
+  height: 37.5rem;
+}
+.spain-title{
+  font-family: 'Domine', sans-serif;
+  color: #FE9000;
+}
+
+.league-link{
+  color: black;
+}
+
+.eng-button{
+  font-family: 'Domine', sans-serif;
+  background-color: #00FFF5;
+  color:rgb(212, 77, 212);
+
+}
+
+.ger-button{
+  font-family: 'Domine', sans-serif;
+  background-color: #DF2935;
+  color: white;
+}
+
+.ita-button{
+  font-family: 'Domine', sans-serif;
+  color: white;
+  background-color: #134074;
+}
+
+.fra-button{
+  font-family: 'Domine', sans-serif;
+  background-color: #BCED09;
+  color: #134074;
+}
+
+.spa-button{
+  font-family: 'Domine', sans-serif;
+  background-color: #FE9000;
+  color: black;
+  position: relative;
+  top: 1.1rem;
 }
 
 .team-logo{
@@ -189,16 +260,13 @@ table{
 
 .spain-header{
   font-family: 'Architects Daughter', cursive;
+  color: #FE9000;
 }
 
 .login-message{
   margin-bottom: 3rem;
 }
 
-/* .sign-in{
-  position: relative;
-  bottom: 1rem;
-} */
 
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
@@ -206,6 +274,11 @@ table{
   position: relative;
   bottom: 2rem;
 }
+.auth-form{
+  position: relative;
+  bottom: .8rem;
+}
+
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
@@ -217,9 +290,15 @@ table{
   top: 3rem;
 }
 
+
 .login-link{
   position: relative;
-  top: 2rem;
+  top: 1rem;
+}
+
+.italy-card{
+  position: relative;
+  height: 37.2rem;
 }
 }
 
@@ -233,6 +312,15 @@ table{
 
 }
 
+.card{
+  position: relative;
+  left: 2rem;
+}
+.auth-button{
+  position: relative;
+  bottom: 2rem;
+}
+
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : portrait){
@@ -244,8 +332,22 @@ table{
 }
 .login-form{
   position: relative;
-  top: 3rem;
+  top: 4rem;
 }
+
+.login-link{
+  position: relative;
+  top: .1rem;
+}
+
+
+
+.card{
+  position: relative;
+  left: 2rem;
+}
+
+
 
 }
 
@@ -256,6 +358,12 @@ table{
 .auth-button{
   margin-bottom: 2.5rem;
 }
+.link{
+  color: white;
+  position: relative;
+  top: 1rem;
+}
+
 }
 @media only screen and (min-device-width : 1024px) and (min-device-height: 768px)  and (orientation : landscape) {
   .bg-image-login{
@@ -264,6 +372,8 @@ table{
 .auth-form{
   margin-top: 3rem;
 }
+
+
 
 }
 
@@ -288,7 +398,7 @@ table{
   }
   .login-form{
     position: relative;
-    top: 3rem;
+    top: 4rem;
   }
 }
 
@@ -297,6 +407,16 @@ table{
     position: relative;
     top: 3rem;
   }
+  .login-link{
+    position: relative;
+    top: .7rem;
+  }
+
+  .card{
+  position: relative;
+  left: 2.5rem;
+}
+
 }
 
 @media only screen and (min-device-width : 1336px) and (min-device-height: 1024px) and (orientation: landscape){
@@ -347,5 +467,32 @@ table{
   height: 80rem;
 }
 
+}
 
+@media only screen and (min-device-width: 736px) and (orientation: landscape){
+.league-card{
+  position: relative;
+  left: 11rem;
+}
+}
+
+@media only screen and (min-device-width: 667px) and (orientation: landscape){
+.league-card{
+  position: relative;
+  left: 1rem;
+}
+}
+
+@media only screen and (min-device-width: 568px) and (orientation: landscape){
+.league-card{
+  position: relative;
+  left: 8rem;
+}
+}
+
+@media only screen and (min-device-width: 812px) and (orientation: landscape){
+.league-card{
+  position: relative;
+  left: 4rem;
+}
 }

@@ -129,8 +129,8 @@ export default class FranceTopScorers extends React.Component {
     return (
       <div className="container-fluid england-container">
         <div className="row">
-          <a href='#' className="text-secondary anchor">
-            &lt; Back To League Page
+          <a href='#france' className="text-secondary anchor">
+            &lt; Back To League Table
           </a>
         </div>
         <div className="row">
@@ -140,9 +140,7 @@ export default class FranceTopScorers extends React.Component {
             <button className="france-button btn btn-sm" onClick={this.getTopScorer2018}>18/19</button>
             <button className="france-button btn btn-sm" onClick={this.getTopScorer2019}>19/20</button>
             <button className="france-button btn btn-sm" onClick={this.getTopScorer2020}>20/21</button>
-
-          </div>
-
+            </div>
         </div>
         <div className="image-container text-center">
           <img className="league-image" src="https://4.bp.blogspot.com/-4LwsXxqR5wY/Xu9eHQlhwuI/AAAAAAACdf8/6uIxrhfUHnYpXzfqMwwkq--mOq7WxlNgQCNcBGAsYHQ/s550/ligue-1-logo-%25284%2529.png"></img>

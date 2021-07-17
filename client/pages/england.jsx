@@ -135,21 +135,18 @@ export default class England extends React.Component {
     return (
     <div className="container-fluid england-container">
       <div className="row">
-          <a href='#' className="text-secondary anchor">
+          <a href='#league-page' className="text-secondary anchor">
             &lt; Back To League Page
           </a>
+          <a href='#england-scorers' className="text-secondary anchor">
+            Top Scorers &#62;
+          </a>
       </div>
-        {/* <div className="row">
-          <div className="col-sm"> */}
             <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2016}>16/17</button>
             <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2017}>17/18</button>
             <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2018}>18/19</button>
             <button className="england-button btn btn-sm" onClick={this.getEnglandInfo2019}>19/20</button>
             <button className="england-button btn btn-sm" onClick={this.getEnglandInfo}>20/21</button>
-
-          {/* </div>
-
-        </div> */}
       <div className="image-container text-center">
         <img className="league-image" src="https://www.egypttoday.com/siteimages/Larg/202012300620332033.jpg"></img>
       </div>
@@ -182,7 +179,6 @@ export default class England extends React.Component {
                     <tr scope="row" key={j}>
                       <td className={className}>
                         {info.rank}
-
                         </td>
                       <td className={className}>
                         <img className="team-logo" src={info.team.logo}/>
@@ -196,7 +192,6 @@ export default class England extends React.Component {
                   );
                 })
               }
-
             </tbody>
           </table>
         </div>

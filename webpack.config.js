@@ -6,8 +6,8 @@ const serverPublicPath = path.join(__dirname, 'server/public');
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.jsx'],
-    fallback: { "path": require.resolve("path-browserify") }
+    extensions: ['.js', '.jsx']
+
   },
   entry: clientPath,
   output: {

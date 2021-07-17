@@ -1,6 +1,5 @@
 require('dotenv/config');
 const express = require('express');
-const errorMiddleware = require('./error-middleware');
 const staticMiddleware = require('./static-middleware');
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
@@ -18,8 +17,6 @@ const app = express();
 app.use(staticMiddleware);
 const jsonMiddleware = express.json();
 app.use(jsonMiddleware);
-
-app.use(errorMiddleware);
 
 app.post('/api/auth/sign-up', (req, res) => {
   const { username, password } = req.body;

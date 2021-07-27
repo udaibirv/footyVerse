@@ -19,7 +19,7 @@
 }
 
 .auth-welcome, .auth-header, .login-message{
-  font-family: 'Tourney', cursive;
+  font-family: 'Dosis', cursive;
   color: white;
   font-size: xx-large;
 }
@@ -43,7 +43,7 @@ form{
 }
 
 label{
-  font-family: 'Tourney', cursive;
+  font-family: 'Dosis', cursive;
   color: white;
 }
 

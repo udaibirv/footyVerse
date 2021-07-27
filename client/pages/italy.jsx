@@ -186,8 +186,10 @@ export default class Italy extends React.Component {
                         {info.rank}
                       </td>
                       <td className={className}>
+                        <div>
+                          {info.team.name}
+                        </div>
                         <img className="team-logo" src={info.team.logo} />
-                        {info.team.name}
                       </td>
                       <td className={className}>{info.all.win}</td>
                       <td className={className}>{info.all.lose}</td>

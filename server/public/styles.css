@@ -497,7 +497,7 @@ table{
 }
 }
 
-@media only screen and (device-width: 896px) and (orientation: landscape){
+@media only screen and (min-device-width : 414px) and (min-device-height: 896px)  and (orientation : landscape) {
   .bg-image-login{
     height: 60rem;
   }

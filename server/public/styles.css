@@ -502,3 +502,9 @@ table{
     height: 60rem;
   }
 }
+
+@media only screen and (min-device-width: 1440px) {
+  .bg-image-login{
+    height: 100rem;
+  }
+}
